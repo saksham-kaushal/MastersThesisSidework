@@ -1,0 +1,3 @@
+Some inconsistencies in plots. How to handle zero values when calculating logs?
+Calculating redshift relation for secondary axis.
+Ideal way to handle subhalo peculiar velocities and positions. Taking Euclidean norm correct or not?
