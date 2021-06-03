@@ -151,7 +151,7 @@ for y in yaxes:
 		ax=axes[1], 								# plot deviations from organic on second (smaller) axis
 		legend=False)								# remove legend, already shown for axis[0]
 
-	axes[0].legend(loc='lower right')				# manually select best location for legend (for consistency, optional)
+	axes[0].legend(loc='lower right')				# manually set legend location (for consistency, optional)
 
 	axes[1].set_ylabel('Deviation', 
 		fontsize=12.5, 
@@ -165,4 +165,4 @@ for y in yaxes:
 	
 	# plt.savefig('./plots/'+str(y)+'.png',dpi=480,bbox_inches='tight')
 
-plt.show()											# View plot. Comment out if using savefig to save plots instead of viewing
+plt.show()											# Comment out if using savefig to save plots instead of viewing
