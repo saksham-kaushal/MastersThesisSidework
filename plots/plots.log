@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  3 JUN 2021 01:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  3 JUN 2021 03:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -74,28 +74,46 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Gin@req@height=\dimen143
 \Gin@req@width=\dimen144
 )
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen145
+\captionmargin@=\dimen146
+\captionwidth=\dimen147
+\caption@tempdima=\dimen148
+\caption@indent=\dimen149
+\caption@parindent=\dimen150
+\caption@hangindent=\dimen151
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count178
+\c@continuedfloat=\count179
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count178
+\l__kernel_color_stack_int=\count180
 \l__pdf_internal_box=\box45
 )
 (./plots.aux)
 \openout1 = `plots.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -120,7 +138,7 @@ LaTeX Font Info:    ... okay on input line 9.
 * \footskip=30.0pt
 * \marginparwidth=4.0pt
 * \marginparsep=10.0pt
-* \columnsep=10.0pt
+* \columnsep=36.135pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
@@ -133,16 +151,16 @@ LaTeX Font Info:    ... okay on input line 9.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count179
-\scratchdimen=\dimen145
+\scratchcounter=\count181
+\scratchdimen=\dimen152
 \scratchbox=\box46
-\nofMPsegments=\count180
-\nofMParguments=\count181
+\nofMPsegments=\count182
+\nofMParguments=\count183
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count182
-\MPscratchDim=\dimen146
-\MPnumerator=\count183
-\makeMPintoPDFobject=\count184
+\MPscratchCnt=\count184
+\MPscratchDim=\dimen153
+\MPnumerator=\count185
+\makeMPintoPDFobject=\count186
 \everyMPtoPDFconversion=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -153,55 +171,59 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-<./BH_mass.png, id=1, 334.70044pt x 439.49194pt>
-File: ./BH_mass.png Graphic file (type png)
-<use ./BH_mass.png>
-Package pdftex.def Info: ./BH_mass.png  used on input line 13.
-(pdftex.def)             Requested size: 356.34999pt x 467.93141pt.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+<./Stellar_mass.png, id=1, 340.27126pt x 437.98631pt>
+File: ./Stellar_mass.png Graphic file (type png)
+<use ./Stellar_mass.png>
+Package pdftex.def Info: ./Stellar_mass.png  used on input line 14.
+(pdftex.def)             Requested size: 343.2825pt x 441.88818pt.
 <./Halo_mass.png, id=3, 341.47575pt x 437.98631pt>
 File: ./Halo_mass.png Graphic file (type png)
 <use ./Halo_mass.png>
-Package pdftex.def Info: ./Halo_mass.png  used on input line 18.
-(pdftex.def)             Requested size: 356.34999pt x 457.07224pt.
-<./Stellar_mass.png, id=4, 340.27126pt x 437.98631pt>
-File: ./Stellar_mass.png Graphic file (type png)
-<use ./Stellar_mass.png>
-Package pdftex.def Info: ./Stellar_mass.png  used on input line 23.
-(pdftex.def)             Requested size: 356.34999pt x 458.70961pt.
-<./SFR.png, id=5, 343.73419pt x 437.98631pt>
-File: ./SFR.png Graphic file (type png)
-<use ./SFR.png>
-Package pdftex.def Info: ./SFR.png  used on input line 28.
-(pdftex.def)             Requested size: 356.34999pt x 454.0782pt.
-<./sSFR.png, id=6, 340.8735pt x 437.98631pt>
-File: ./sSFR.png Graphic file (type png)
-<use ./sSFR.png>
-Package pdftex.def Info: ./sSFR.png  used on input line 33.
-(pdftex.def)             Requested size: 356.34999pt x 457.90764pt.
-<./subhalo_peculiar_velocity.png, id=7, 341.32518pt x 437.98631pt>
+Package pdftex.def Info: ./Halo_mass.png  used on input line 20.
+(pdftex.def)             Requested size: 343.2825pt x 440.31096pt.
+<./BH_mass.png, id=4, 334.70044pt x 439.34137pt>
+File: ./BH_mass.png Graphic file (type png)
+<use ./BH_mass.png>
+Package pdftex.def Info: ./BH_mass.png  used on input line 26.
+(pdftex.def)             Requested size: 343.2825pt x 450.62277pt.
+<./subhalo_peculiar_velocity.png, id=5, 341.32518pt x 437.98631pt>
 File: ./subhalo_peculiar_velocity.png Graphic file (type png)
 <use ./subhalo_peculiar_velocity.png>
-Package pdftex.def Info: ./subhalo_peculiar_velocity.png  used on input line 38
+Package pdftex.def Info: ./subhalo_peculiar_velocity.png  used on input line 32
 .
-(pdftex.def)             Requested size: 356.34999pt x 457.27942pt.
+(pdftex.def)             Requested size: 343.2825pt x 440.51146pt.
+<./SFR.png, id=6, 343.73419pt x 437.98631pt>
+File: ./SFR.png Graphic file (type png)
+<use ./SFR.png>
+Package pdftex.def Info: ./SFR.png  used on input line 38.
+(pdftex.def)             Requested size: 343.2825pt x 437.42386pt.
+<./sSFR.png, id=7, 340.8735pt x 437.98631pt>
+File: ./sSFR.png Graphic file (type png)
+<use ./sSFR.png>
+Package pdftex.def Info: ./sSFR.png  used on input line 44.
+(pdftex.def)             Requested size: 343.2825pt x 441.11295pt.
 
-[1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map} <./BH_mass
-.png> <./Halo_mass.png>] [2 <./Stellar_mass.png> <./SFR.png>] [3 <./sSFR.png> <
-./subhalo_peculiar_velocity.png>] (./plots.aux) ) 
+[1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map} <./Stellar
+_mass.png> <./Halo_mass.png>] [2 <./BH_mass.png> <./subhalo_peculiar_velocity.p
+ng>] [3 <./SFR.png> <./sSFR.png>] (./plots.aux) ) 
 Here is how much of TeX's memory you used:
- 1694 strings out of 482555
- 24961 string characters out of 5952145
- 261193 words of memory out of 5000000
- 17363 multiletter control sequences out of 15000+600000
- 532338 words of font info for 24 fonts, out of 8000000 for 9000
+ 2806 strings out of 482555
+ 45109 string characters out of 5952145
+ 281294 words of memory out of 5000000
+ 18467 multiletter control sequences out of 15000+600000
+ 532943 words of font info for 26 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 30i,5n,33p,201b,212s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,5n,42p,227b,335s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on plots.pdf (3 pages, 1683622 bytes).
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb>
+Output written on plots.pdf (3 pages, 1771254 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 12 compressed objects within 1 object stream
+ 39 PDF objects out of 1000 (max. 8388607)
+ 18 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
