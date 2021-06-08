@@ -31,7 +31,7 @@ def redshift_x_axis(ax, ax_primary):
 
 
 # ===================================== Main program ====================================================
-	
+
 			# ------- Data directory and file names
 
 data_dir 		= './data_updated/'
@@ -100,7 +100,7 @@ log10_unit_variables = [
 zero_values = {
 	'SFR':1e-3,
 	'sSFR':1e-13,
-	'BH_mass':1e-1
+	'BH_mass':1
 }
 
 			# ------- Dataframe columns to be plotted with respect to time

@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1622672314 "plots.tex" "plots.pdf" "plots" 1622672317
+["pdflatex"] 1623176038 "plots.tex" "plots.pdf" "plots" 1623176217
   "/home/saksham/.texlive2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1613326808 1146607 2162ddb54d24cd35b9e1d088a99fb843 ""
   "/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1604350495 5022041 fedbf65a04995bc2a815b3fd3ce911d3 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -26,15 +26,15 @@
   "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def" 1584044900 25398 19ae1e59d7f4a47fefb457d851f6f503 ""
   "/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1621882710 39615 33f7d51cf394547e122c9714408659b1 ""
-  "BH_mass.png" 1622671499 301029 3d01670126067e79de294175ce27c1b8 ""
-  "Halo_mass.png" 1622671499 282883 994d322379cc24717134c3f18ddb35b5 ""
-  "SFR.png" 1622671500 361221 ff65f758af789ce39cbe180c8ce03455 ""
-  "Stellar_mass.png" 1622671498 285847 8e0a8e30585a5a389b22dff353549c8f ""
-  "plots.aux" 1622672317 843 d9fca6a5dfc9900dc0cea578d1c2f835 "pdflatex"
+  "BH_mass.png" 1623176023 258752 401ecb28461ffc2dd0116b38407da61b ""
+  "Halo_mass.png" 1623176022 279130 c0179ce1864aa0ec0e4d296f41d5f9bf ""
+  "SFR.png" 1623176023 389674 cf8bef6544784dffed16f7462dd6f73a ""
+  "Stellar_mass.png" 1623176021 303960 356f3caf47cb5fbae6d82a47fdaf1068 ""
+  "plots.aux" 1623176041 843 d9fca6a5dfc9900dc0cea578d1c2f835 "pdflatex"
   "plots.tex" 1622672314 1192 8f9c74ff8691e72ea673568b0981e29a ""
-  "sSFR.png" 1622671501 329391 7823069c9dc7705a45940c4709281a4d ""
-  "subhalo_peculiar_velocity.png" 1622671501 345077 e712ef8e5cffd998f1169a89815d5488 ""
+  "sSFR.png" 1623176024 370217 728848d50b1ba6ba42c8fb9d99c21929 ""
+  "subhalo_peculiar_velocity.png" 1623176025 418397 c3bf97f52d9927520dc15d21213d8cd5 ""
   (generated)
-  "plots.log"
-  "plots.aux"
   "plots.pdf"
+  "plots.aux"
+  "plots.log"
