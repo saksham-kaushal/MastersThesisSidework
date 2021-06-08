@@ -18,7 +18,7 @@ def redshift_x_axis(ax, ax_primary):
 	'''
 	Function mapping of ticks for a secondary redshift axis corresponding to cosmological lookback time.
 	Parameters:
-	ax 			= secondary redshift axis, probably defined using matplotlib's twinx/twiny function
+	ax			= secondary redshift axis, probably defined using matplotlib's twinx/twiny function
 	ax_primary 	= primary lookback time axis
 	'''
 

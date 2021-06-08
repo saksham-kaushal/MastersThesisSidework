@@ -2,4 +2,4 @@ Some inconsistencies in plots. How to handle zero values when calculating logs?
 Calculating redshift relation for secondary axis.
 Ideal way to handle subhalo peculiar velocities and positions. Taking Euclidean norm preferable or not?
 How to handle a_exp values? Should they be multiplied to get results in physical units? In that case what would be the expansion factor?
-
+Look for better minimum value of minimum blackhole mass.
