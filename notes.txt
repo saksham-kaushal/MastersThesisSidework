@@ -3,18 +3,3 @@ Calculating redshift relation for secondary axis.
 Ideal way to handle subhalo peculiar velocities and positions. Taking Euclidean norm preferable or not?
 How to handle a_exp values? Should they be multiplied to get results in physical units? In that case what would be the expansion factor?
 
-Hi everyone,
-
-Hope everyone's doing great! I just had a long week recovering from side-effects of vaccination but finally managed to organize my thoughts and work on data shared after our last meeting. 
-
-I considered the plots in Davies et al., 2020 as my reference plots and tried to make my plots as similar to those as possible in terms of information being conveyed, while keeping my python plotting scripts quite general (i.e. I did not work on plots individually, so some information specific to one plot or the other is expected to be missing here). In this mail, please find attached a pdf containing six of my plots; any feedback (or corrections/discussions/suggestions, etc.) would be helpful.
-
-This accompanies a few issues, that may be clarified over email so I can work on them over the weekend, or alternatively may be discussed in the next meeting.
-
-1. One missing element in my plots is the secondary x-axis on top which marks the redshift values. That's because I could not make the redshift values on the x-axis to coincide with the correct values of corresponding time. One way to make this work is by using a mathematical relation between the two, instead of using the data from data files for defining the redshift axis. I tried using the relation from https://link.springer.com/article/10.1007/s10702-006-0518-3, and setting the Hubble constant equal to 67.77 from Schaye et al. But the values obtained this way seem to differ significantly from those given in the data. So, is there a way this can be achieved?
-
-2. There are some inconsistencies in my plots - most prominently the plot for SFR and sSFR getting truncated at approximately 8 Gyr for GM-early type galaxy. Looking at the data, that corresponds to the first zero value of star formation rate. This is not the case in Davies et al. paper. However, the main issue is - what is the suggested way to deal with zero values when computing log10 values?
-
-3. I have added the subhalo peculiar velocities plot in the pdf. For that I've just taken the Euclidean norm of the x, y and z components. But, I think there might be a better way to represent this. Does calculating the norm seem reasonable? As a matter of fact, I'm quite unaware of what "subhalo peculiar velocity" means.
-
-4. From what I understand, a_exp column in the data is the scale exponent and to quote Jon Davies' blog "To get our results in physical units, we must multiply our data by the ExpansionFactor (found in the Header), raised to some power that depends on the quantity." So, am I correct in thinking that the velocities and positions need to be multiplied by a_exp to get values in physical units, and also, all other plots involve only mass values, so no scaling needs to be performed there?
