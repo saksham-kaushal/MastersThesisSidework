@@ -224,4 +224,5 @@ if __name__ == '__main__' :
 	# ------- Plot the particle number distribution for all assembly modes.
 
 	plot_particle_distribution([gm_early_df,organic_df,gm_late_df],show=True)
+	
 	# plt.show()
