@@ -123,12 +123,12 @@ def get_subdf(fname,params_list):
 		subdf[param] = params_dict[param](fname)
 	return subdf
 
-def get_df(fname_list, params_list):
+def get_df(fname_list, params_list=['coords_x', 'coords_y', 'coords_z', 'vel_x', 'vel_y', 'vel_z', 'mass', 'redshift']):
 	'''
 	Returns a concatenated dataframe (of a single assembly type) of all sub-dataframes constructed using individual hdf5 files.
 	Parameters	:
 	fname_list	- list of several hdf5 file handles,
-	params_list	- list of columns to be extracted from hdf5 file datasets.
+	params_list	- list of columns to be extracted from hdf5 file datasets, defaults to complete dataset.
 	'''
 	df = pd.DataFrame()
 	if 'redshift' not in params_list:			# Compulsorily add redshift in list of columns.
@@ -136,16 +136,27 @@ def get_df(fname_list, params_list):
 	df = pd.concat([df]+[get_subdf(fname,params_list) for fname in fname_list], ignore_index=True)
 	return df
 
-def prepare_plot():
+def capitalize_first_letter(string):
+	return string[0].capitalize()+string[1:]
+
+def prepare_plot(context='paper',theme='dark',font_scale=1,rc_kwparams=dict()):
 	'''
 	Set seaborn styling for plots.
 	'''
-	sns.set_context('paper')
-	sns.set_style('dark',
-		{'xtick.bottom': True, 
+	rc_params	= {
+		'xtick.bottom': True, 
 		'ytick.left': True, 
 		'axes.spines.left': True, 
-		'axes.spines.bottom': True})
+		'axes.spines.bottom': True
+		}
+	rc_params.update(rc_kwparams)
+	sns.set_context(context,font_scale)
+	sns.set_style(theme,rc_params)
+
+def add_assembly_column(df_list):
+	for df in df_list :
+		df['assembly']	= df.name
+	return df_list
 
 def get_particle_distribution(df_list,col='redshift'):
 	df 		= pd.DataFrame()
@@ -166,14 +177,48 @@ def plot_particle_distribution(df_list, col='redshift',show=True):
 	show 		- passed to plot_or_not() function to evaluate whether to show the plot or save it.
 	'''
 	prepare_plot()
-	dist_df		= get_particle_distribution(df_list,col)
-	sns.relplot(data=dist_df,x=col,y='counts',hue='assembly',kind='scatter')		# Plots a scatter plot. To plot histogram instead, use displot with kind='hist'. Counts are then computed automatically.
+	dist_df			= get_particle_distribution(df_list,col)
+	hue				= 'assembly'
+	g 				= sns.relplot(data=dist_df,
+								  x=col,
+								  y='counts',
+								  hue= hue,
+								  kind='scatter').set(xlabel=capitalize_first_letter(str(col)),
+								  ylabel='Counts')		# Plots a scatter plot. To plot histogram instead, use displot with kind='hist'. Counts are then computed automatically.
+	g_axis_level 	= sns.lineplot(data=dist_df,
+								   x=col,
+								   y='counts',
+								   hue= hue,
+								   ax=g.ax,
+								   legend=False)
+	# g_axis_level.set_xlabel(capitalize_first_letter(str(col)))
+	# g_axis_level.set_ylabel('Counts')
+	g._legend.set_title(capitalize_first_letter(str(hue)))
 	plot_or_not(show,plot_name='particle_distribution_wrt_'+col)
 	return  							# No return value. Plot is either shown or saved, or nothing is done.
 
 
-def plot_masses(hdf5_file_list):
-	prepare_plot()
+def plot_mass_distribution(df_list,show=True):
+	df_list 	= add_assembly_column(df_list)
+	df 			= pd.concat(df_list)
+	prepare_plot(theme='darkgrid',font_scale=1.25)
+	# print(sns.axes_style())
+	hue 		='assembly'
+	g 			= sns.displot(data=df,
+							  x='mass',
+							  col=hue,
+							  hue=hue,
+							  bins=150,
+							  kind='hist',
+							  rug=True,
+							  rug_kws={'height':-0.025,'clip_on':False,'alpha':0.5}).set(title='')
+	g._legend.set_title(capitalize_first_letter(str(hue)))
+	for axlist in g.axes:
+		for ax in axlist:
+			ax.tick_params(length=10,pad=10)
+			ax.set_xlabel('Mass $[M_{\odot}]$')
+	plot_or_not(show,plot_name='particle_mass_distribution')
+	return
 
 def plot_or_not(show,plot_name=None):
 	'''
@@ -187,7 +232,7 @@ def plot_or_not(show,plot_name=None):
 	elif show == False :
 		if plot_name == None :
 			plot_name = np.random.randint(10000,99999)
-		plt.savefig(os.path.join(get_directory(plots),plot_name,'.png'),
+		plt.savefig(os.path.join(get_directory('plots'),plot_name+'.png'),
 			dpi=480,bbox_inches='tight')
 	elif show == None :
 		pass 
@@ -196,7 +241,7 @@ def plot_or_not(show,plot_name=None):
 
 
 if __name__ == '__main__' :
-	
+
 	# ------- Get hdf5 file handles list for each type of assembly.
 
 	gm_early_files		= get_files(get_directory('gm_early_data'))
@@ -221,8 +266,11 @@ if __name__ == '__main__' :
 	organic_df.name  	= 'Organic'
 	gm_late_df.name  	= 'GM-Late'
 
+	df_list 			= [gm_early_df,organic_df,gm_late_df]
+	# df_list 			= [organic_df]
+
 	# ------- Plot the particle number distribution for all assembly modes.
 
-	plot_particle_distribution([gm_early_df,organic_df,gm_late_df],show=True)
-	
-	# plt.show()
+	plot_particle_distribution(df_list,show=False)
+
+	plot_mass_distribution(df_list,show=False)

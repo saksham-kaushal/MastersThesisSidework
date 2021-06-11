@@ -1,3 +1,6 @@
 Why increase in particle number distribution at redshift ~0.7 for GM-Early? Are observed trends expected?
-TODO : Test for no hdf5 files - get_files() in plotter.py #30
-TODO : Test for other columns passed as parameter col - plot_particle_distribution() in plotter.py #159
+Code inefficient in terms of memory management. Hdf5 file datasets (all or only specific columns) are read into pandas dataframe. dataframe is stored in memory while hdf5 is in disk (unless driver=core). So for large datasets, memory may be a bottleneck.
+
+TODO : 
+Test for no hdf5 files - get_files() in plotter.py #30
+Test for other columns passed as parameter col - plot_particle_distribution() in plotter.py #159
