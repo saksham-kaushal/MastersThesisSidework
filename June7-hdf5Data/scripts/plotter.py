@@ -138,6 +138,11 @@ def get_df(fname_list, params_list=['coords_x', 'coords_y', 'coords_z', 'vel_x',
 	return df
 
 def capitalize_first_letter(string):
+	'''
+	Returns a string with capitalized first letter.
+	Parameters	:
+	string	- a string whose first words is to be capitalized. This does not return string in camelcase, for which we might need to call this function repeated on split string.
+	'''
 	return string[0].capitalize()+string[1:]
 
 def prepare_plot(context='paper',theme='dark',font_scale=1,rc_kwparams=dict()):
@@ -150,16 +155,27 @@ def prepare_plot(context='paper',theme='dark',font_scale=1,rc_kwparams=dict()):
 		'axes.spines.left': True, 
 		'axes.spines.bottom': True
 		}
-	rc_params.update(rc_kwparams)
+	rc_params.update(rc_kwparams)			# Update parameters by adding parameters passed to function
 	sns.set_context(context,font_scale)
 	sns.set_style(theme,rc_params)
 
 def add_assembly_column(df_list):
+	'''
+	Returns a list of dataframes with an extra column added, which signifies mode of assembly of data. This is denoted by name of dataframe.
+	Parameters	:
+	df_list	- a list of dataframes with their name attributes already set.
+	'''
 	for df in df_list :
 		df['assembly']	= df.name
 	return df_list
 
 def get_particle_distribution(df_list,col='redshift'):
+	'''
+	Returns a single dataframe containing value counts of different values of column "col".
+	Parameters	:
+	df_list	- a list of dataframes to be concatenated.
+	col 	- column which acts as index vor value counts.
+	'''
 	df 		= pd.DataFrame()
 	for subdf in df_list:
 		count				= subdf.value_counts(col).sort_index(ascending=True).to_frame(name='counts')
@@ -191,15 +207,19 @@ def plot_particle_distribution(df_list, col='redshift',show=True):
 								   y='counts',
 								   hue= hue,
 								   ax=g.ax,
-								   legend=False)
-	# g_axis_level.set_xlabel(capitalize_first_letter(str(col)))
-	# g_axis_level.set_ylabel('Counts')
+								   legend=False)		# Plots a line plot above which scatter points will lie.
 	g._legend.set_title(capitalize_first_letter(str(hue)))
 	plot_or_not(show,plot_name='particle_distribution_wrt_'+col)
 	return  							# No return value. Plot is either shown or saved, or nothing is done.
 
 
 def plot_mass_distribution(df_list,show=True):
+	'''
+	Plots mass distribution for different types of assembly modes. Number of particles at all redshifts are added. Rugplot is added to show range of masses involved.
+	Parameters	:
+	df_list	- List of dataframes (assembly modes) for which distribution is to be plotted using separate hues on different plots with shared y axes.
+	show 	- parameter defining whether to save or show the plot.
+	'''
 	df_list 	= add_assembly_column(df_list)
 	df 			= pd.concat(df_list)
 	prepare_plot(theme='darkgrid',font_scale=1.25)
@@ -214,7 +234,7 @@ def plot_mass_distribution(df_list,show=True):
 							  rug=True,
 							  rug_kws={'height':-0.025,'clip_on':False,'alpha':0.5},).set(title='')
 	g._legend.set_title(capitalize_first_letter(str(hue)))
-	for axlist in g.axes:
+	for axlist in g.axes:					# Access each axis of FacetGrid
 		for ax in axlist:
 			ax.tick_params(length=10,pad=10)
 			ax.set_xlabel('Mass $[M_{\odot}]$')
@@ -222,6 +242,12 @@ def plot_mass_distribution(df_list,show=True):
 	return
 
 def plot_mass_distribution_with_redshift(df_list,show=True):
+	'''
+	Plots mass distribution for a range of redshift for each individual type of assembly mode. 
+	Parameters	:
+	df_list	- List of dataframes (assembly modes) for which distribution is to be plotted on a separate figure over a range of axes.
+	show 	- parameter defining whether to save or show the plot.
+	'''
 	for df in df_list :
 		prepare_plot(font_scale=2)
 		g = sns.displot(data 	= df,
@@ -286,4 +312,4 @@ if __name__ == '__main__' :
 
 	# plot_mass_distribution(df_list,show=False)
 
-	plot_mass_distribution_with_redshift(df_list,show=False)
+	# plot_mass_distribution_with_redshift(df_list,show=False)
