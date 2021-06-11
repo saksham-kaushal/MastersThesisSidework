@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 import re 
+import time
 
 # ===================================== User-defined function definitions ===============================
 
@@ -211,7 +212,7 @@ def plot_mass_distribution(df_list,show=True):
 							  bins=150,
 							  kind='hist',
 							  rug=True,
-							  rug_kws={'height':-0.025,'clip_on':False,'alpha':0.5}).set(title='')
+							  rug_kws={'height':-0.025,'clip_on':False,'alpha':0.5},).set(title='')
 	g._legend.set_title(capitalize_first_letter(str(hue)))
 	for axlist in g.axes:
 		for ax in axlist:
@@ -220,7 +221,18 @@ def plot_mass_distribution(df_list,show=True):
 	plot_or_not(show,plot_name='particle_mass_distribution')
 	return
 
-def plot_or_not(show,plot_name=None):
+def plot_mass_distribution_with_redshift(df_list,show=True):
+	for df in df_list :
+		prepare_plot(font_scale=2)
+		g = sns.displot(data 	= df,
+						x 		= 'mass',
+						col  	= 'redshift',
+						col_wrap = 5,
+						facet_kws=dict(sharey=False)).set(xlim=[0,1.5e6])
+		plot_or_not(show,plot_name='mass_distribution_wrt_redshift_'+str(df.name),dpi=240)
+	return
+
+def plot_or_not(show,plot_name=None,dpi=480):
 	'''
 	Function to switch between show and save methods for plots.
 	Parameters	:	
@@ -233,7 +245,7 @@ def plot_or_not(show,plot_name=None):
 		if plot_name == None :
 			plot_name = np.random.randint(10000,99999)
 		plt.savefig(os.path.join(get_directory('plots'),plot_name+'.png'),
-			dpi=480,bbox_inches='tight')
+			dpi=dpi,bbox_inches='tight')
 	elif show == None :
 		pass 
 
@@ -248,7 +260,6 @@ if __name__ == '__main__' :
 	organic_files		= get_files(get_directory('organic_data'))
 	gm_late_files		= get_files(get_directory('gm_late_data'))
 
-	
 	# ------- Available fields for cols :
 	# ------- 'coords_x', 'coords_y', 'coords_z', 'vel_x', 'vel_y', 'vel_z', 'mass', 'redshift'
 	
@@ -271,6 +282,8 @@ if __name__ == '__main__' :
 
 	# ------- Plot the particle number distribution for all assembly modes.
 
-	plot_particle_distribution(df_list,show=False)
+	# plot_particle_distribution(df_list,show=False)
 
-	plot_mass_distribution(df_list,show=False)
+	# plot_mass_distribution(df_list,show=False)
+
+	plot_mass_distribution_with_redshift(df_list,show=False)

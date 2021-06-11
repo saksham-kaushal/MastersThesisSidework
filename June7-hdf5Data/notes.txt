@@ -2,5 +2,6 @@ Why increase in particle number distribution at redshift ~0.7 for GM-Early? Are 
 Code inefficient in terms of memory management. Hdf5 file datasets (all or only specific columns) are read into pandas dataframe. dataframe is stored in memory while hdf5 is in disk (unless driver=core). So for large datasets, memory may be a bottleneck.
 
 TODO : 
-Test for no hdf5 files - get_files() in plotter.py #30
-Test for other columns passed as parameter col - plot_particle_distribution() in plotter.py #159
+Test for no hdf5 files - get_files() in plotter.py
+Test for other columns passed as parameter col - plot_particle_distribution() in plotter.py
+Improve df_list assignment to only create dataframes that are needed in the list instead of making all dataframes and later filtering out the ones needed -- plotting is bottleneck, not the reading to dataframes.
