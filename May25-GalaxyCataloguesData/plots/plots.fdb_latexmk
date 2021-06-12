@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1623176038 "plots.tex" "plots.pdf" "plots" 1623176217
+["pdflatex"] 1623517031 "plots.tex" "plots.pdf" "plots" 1623517034
   "/home/saksham/.texlive2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1613326808 1146607 2162ddb54d24cd35b9e1d088a99fb843 ""
   "/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1604350495 5022041 fedbf65a04995bc2a815b3fd3ce911d3 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -26,15 +26,15 @@
   "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def" 1584044900 25398 19ae1e59d7f4a47fefb457d851f6f503 ""
   "/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1621882710 39615 33f7d51cf394547e122c9714408659b1 ""
-  "BH_mass.png" 1623176023 258752 401ecb28461ffc2dd0116b38407da61b ""
-  "Halo_mass.png" 1623176022 279130 c0179ce1864aa0ec0e4d296f41d5f9bf ""
-  "SFR.png" 1623176023 389674 cf8bef6544784dffed16f7462dd6f73a ""
-  "Stellar_mass.png" 1623176021 303960 356f3caf47cb5fbae6d82a47fdaf1068 ""
-  "plots.aux" 1623176041 843 d9fca6a5dfc9900dc0cea578d1c2f835 "pdflatex"
-  "plots.tex" 1622672314 1192 8f9c74ff8691e72ea673568b0981e29a ""
-  "sSFR.png" 1623176024 370217 728848d50b1ba6ba42c8fb9d99c21929 ""
-  "subhalo_peculiar_velocity.png" 1623176025 418397 c3bf97f52d9927520dc15d21213d8cd5 ""
+  "BH_mass.png" 1623516899 270089 a22a538b32c4727b263e25b37137abf9 ""
+  "Halo_mass.png" 1623516898 285940 71538ff9828bb051d334f5d2ded8b5b6 ""
+  "SFR.png" 1623516900 396313 08377448362a18a277c37d75f94dd695 ""
+  "Stellar_mass.png" 1623516897 311130 f73b9a832d4f42f45e9bc4931c3c4926 ""
+  "plots.aux" 1623517034 843 d9fca6a5dfc9900dc0cea578d1c2f835 "pdflatex"
+  "plots.tex" 1623494091 1192 8f9c74ff8691e72ea673568b0981e29a ""
+  "sSFR.png" 1623516900 377061 514440157a4adc2ef2ce129528c16c19 ""
+  "subhalo_peculiar_velocity.png" 1623516901 424867 94998d556347c78faab7a1795c20efa4 ""
   (generated)
   "plots.pdf"
-  "plots.aux"
   "plots.log"
+  "plots.aux"

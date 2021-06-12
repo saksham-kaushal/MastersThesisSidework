@@ -210,6 +210,7 @@ for y in yaxes:
 		labelpad=5)
 
 	secondary_x = axes[0].twiny()					# define secondary redshift axis
+	secondary_x.set_xlabel('Redshift')
 	redshift_x_axis(secondary_x,axes[0])			# function call to obtain correct mapping of time and redshift values
 
 	fig.subplots_adjust(hspace=0.05)				# reduce space between subplots for better viewing of ticks

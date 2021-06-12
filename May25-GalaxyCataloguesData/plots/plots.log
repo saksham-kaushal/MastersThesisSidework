@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  8 JUN 2021 23:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  12 JUN 2021 22:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -173,37 +173,37 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<./Stellar_mass.png, id=1, 340.27126pt x 454.99988pt>
+<./Stellar_mass.png, id=1, 340.27126pt x 466.29207pt>
 File: ./Stellar_mass.png Graphic file (type png)
 <use ./Stellar_mass.png>
 Package pdftex.def Info: ./Stellar_mass.png  used on input line 14.
-(pdftex.def)             Requested size: 343.2825pt x 459.05331pt.
-<./Halo_mass.png, id=3, 340.27126pt x 454.99988pt>
+(pdftex.def)             Requested size: 343.2825pt x 470.44609pt.
+<./Halo_mass.png, id=3, 340.27126pt x 466.29207pt>
 File: ./Halo_mass.png Graphic file (type png)
 <use ./Halo_mass.png>
 Package pdftex.def Info: ./Halo_mass.png  used on input line 20.
-(pdftex.def)             Requested size: 343.2825pt x 459.05331pt.
-<./BH_mass.png, id=4, 333.04425pt x 454.99988pt>
+(pdftex.def)             Requested size: 343.2825pt x 470.44609pt.
+<./BH_mass.png, id=4, 333.04425pt x 466.29207pt>
 File: ./BH_mass.png Graphic file (type png)
 <use ./BH_mass.png>
 Package pdftex.def Info: ./BH_mass.png  used on input line 26.
-(pdftex.def)             Requested size: 343.2825pt x 469.00224pt.
-<./subhalo_peculiar_velocity.png, id=5, 341.32518pt x 454.99988pt>
+(pdftex.def)             Requested size: 343.2825pt x 480.64194pt.
+<./subhalo_peculiar_velocity.png, id=5, 341.32518pt x 466.29207pt>
 File: ./subhalo_peculiar_velocity.png Graphic file (type png)
 <use ./subhalo_peculiar_velocity.png>
 Package pdftex.def Info: ./subhalo_peculiar_velocity.png  used on input line 32
 .
-(pdftex.def)             Requested size: 343.2825pt x 457.62311pt.
-<./SFR.png, id=6, 341.47575pt x 454.99988pt>
+(pdftex.def)             Requested size: 343.2825pt x 468.9804pt.
+<./SFR.png, id=6, 341.47575pt x 466.29207pt>
 File: ./SFR.png Graphic file (type png)
 <use ./SFR.png>
 Package pdftex.def Info: ./SFR.png  used on input line 38.
-(pdftex.def)             Requested size: 343.2825pt x 457.41483pt.
-<./sSFR.png, id=7, 340.8735pt x 454.99988pt>
+(pdftex.def)             Requested size: 343.2825pt x 468.76695pt.
+<./sSFR.png, id=7, 340.8735pt x 466.29207pt>
 File: ./sSFR.png Graphic file (type png)
 <use ./sSFR.png>
 Package pdftex.def Info: ./sSFR.png  used on input line 44.
-(pdftex.def)             Requested size: 343.2825pt x 458.24796pt.
+(pdftex.def)             Requested size: 343.2825pt x 469.62076pt.
 
 [1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map} <./Stellar
 _mass.png> <./Halo_mass.png>] [2 <./BH_mass.png> <./subhalo_peculiar_velocity.p
@@ -220,7 +220,7 @@ Here is how much of TeX's memory you used:
 /fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmr12.pfb>
-Output written on plots.pdf (3 pages, 1742257 bytes).
+Output written on plots.pdf (3 pages, 1771547 bytes).
 PDF statistics:
  39 PDF objects out of 1000 (max. 8388607)
  18 compressed objects within 1 object stream
