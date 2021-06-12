@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 import re 
+import itertools
 import time
 
 # ===================================== User-defined function definitions ===============================
@@ -240,6 +241,7 @@ def plot_particle_distribution(df_list, col='redshift',show=True):
 								  hue= hue,
 								  kind='scatter').set(xlabel=capitalize_first_letter(str(col)),
 								  ylabel='Counts')		# Plots a scatter plot. To plot histogram instead, use displot with kind='hist'. Counts are then computed automatically.
+	g.ax.invert_xaxis()
 	g_axis_level 	= sns.lineplot(data=dist_df,
 								   x=col,
 								   y='counts',
@@ -266,6 +268,7 @@ def plot_total_mass_in_particles_with_redshift(df_list,show=True):
 								  hue= hue,
 								  kind='scatter').set(xlabel='Redshift',
 								  ylabel='Total Mass $M_{\odot}$')		# Plots a scatter plot. To plot histogram instead, use displot with kind='hist'. Counts are then computed automatically.
+	g.ax.invert_xaxis()
 	g_axis_level 	= sns.lineplot(data=dist_df,
 								   x='redshift',
 								   y='mass',
@@ -311,13 +314,16 @@ def plot_mass_distribution_with_redshift(df_list,show=True):
 	df_list	- List of dataframes (assembly modes) for which distribution is to be plotted on a separate figure over a range of axes.
 	show 	- parameter defining whether to save or show the plot.
 	'''
+	palette 	= itertools.cycle(sns.color_palette())
 	for df in df_list :
 		prepare_plot(font_scale=2)
 		g = sns.displot(data 	= df,
 						x 		= 'mass',
 						col  	= 'redshift',
-						col_wrap = 5,
-						facet_kws=dict(sharey=False)).set(xlim=[0,1.5e6])
+						col_wrap 	= 5,
+						col_order 	= sorted(df['redshift'].unique(), reverse=True),
+						color 	= next(palette),
+						facet_kws	=dict(sharey=False)).set(xlim=[0,1.5e6])
 		plot_or_not(show,plot_name='mass_distribution_wrt_redshift_'+str(df.name),dpi=240)
 	return
 
@@ -357,7 +363,7 @@ if __name__ == '__main__' :
 
 	# plot_mass_distribution(df_list,show=True)
 
-	# plot_mass_distribution_with_redshift(df_list,show=True)
+	plot_mass_distribution_with_redshift(df_list,show=False)
 
 	# plot_particle_distribution(df_list,show=True)
 

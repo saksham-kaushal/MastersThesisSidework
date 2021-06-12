@@ -1,4 +1,6 @@
-Why increase in particle number distribution at redshift ~0.7 for GM-Early? Are observed trends expected?
+Why increase in particle number distribution at redshift ~0.7 for GM-Early? Observed trends seem expected, in the sense that with reducing redshift, star formation occurs which implies both more as well as massive star particles given the limited resolution, as gas turns to stars. But the kink at redshift ~0.7 means that number and mass of star particles increased and then decreased. What could possibly be the reason? Similar, but less abrupt tred is seen at some other points at high redshifts too.
+Distribution of masses is as expected - single sharp peak with not much variation. But with reducing redshift, the peak is seen to shift to slightly lower masses.
+Deviations to extremely large masses and comparatively smoother decline is seen in the organic case. Any specific reason for the same? Does this mean that SNe and AGN induced variations are more prominent in organic case or is it simply because of large number and mass of star particles in organic case?
 Code inefficient in terms of memory management. Hdf5 file datasets (all or only specific columns) are read into pandas dataframe. dataframe is stored in memory while hdf5 is in disk (unless driver=core). So for large datasets, memory may be a bottleneck.
 
 TODO : 

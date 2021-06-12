@@ -62,6 +62,12 @@ INPUT /usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map
 INPUT ../plots/mass_distribution_wrt_redshift_GM-Early.png
 INPUT ../plots/mass_distribution_wrt_redshift_GM-Early.png
 INPUT ../plots/mass_distribution_wrt_redshift_GM-Early.png
+INPUT ../plots/mass_distribution_wrt_redshift_Organic.png
+INPUT ../plots/mass_distribution_wrt_redshift_Organic.png
+INPUT ../plots/mass_distribution_wrt_redshift_Organic.png
+INPUT ../plots/mass_distribution_wrt_redshift_GM-Late.png
+INPUT ../plots/mass_distribution_wrt_redshift_GM-Late.png
+INPUT ../plots/mass_distribution_wrt_redshift_GM-Late.png
 INPUT plots.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
