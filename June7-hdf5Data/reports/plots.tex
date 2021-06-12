@@ -3,15 +3,26 @@
 \usepackage[total={8in,10in}]{geometry}
 \usepackage{graphicx}
 \graphicspath{{../plots/}}
-\usepackage[font=Large,labelfont=bf]{caption}
+\usepackage[font=large,labelfont=bf]{caption}
 \captionsetup{width=\linewidth}
+\usepackage{subcaption}
 
 \begin{document}
 	
 	\begin{figure}
-			\centering 
-			\includegraphics[width=.5\columnwidth]{../plots/particle_distribution_wrt_redshift.png}
-			\caption{Distribution of particles with redshift for three assembly modes.}
+		\centering
+		\begin{subfigure} {.5\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../plots/particle_distribution_wrt_redshift.png}
+				\caption{Distribution of particles with redshift for three assembly modes.}
+		\end{subfigure}
+			\hfill
+		\begin{subfigure} {.45\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../plots/total_mass_wrt_redshift.png}
+				\caption{Distribution of total mass of particles with redshift for three assembly modes.}
+		\end{subfigure}
+		\caption{Evolution of distributions of number of particles and total amount of mass contained in them with redshift for three assembly modes.}
 	\end{figure}
 
 	\begin{figure}
