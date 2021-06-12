@@ -19,6 +19,7 @@ def capitalize_first_letter(string):
 	'''
 	return string[0].capitalize()+string[1:]
 
+def add_assembly_column(df_list):
 	'''
 	Returns a list of dataframes with an extra column added, which signifies mode of assembly of data. This is denoted by name of dataframe.
 	Parameters	:
@@ -352,7 +353,7 @@ if __name__ == '__main__' :
 	df_list 			= [gm_early_df,organic_df,gm_late_df]
 	# df_list 			= [organic_df]
 
-	# ------- Plot the particle number distribution for all assembly modes.
+	# ------- Plot the particle number distribution for all assembly modes. All plotting functions are standalone.
 
 	# plot_mass_distribution(df_list,show=True)
 
