@@ -275,6 +275,36 @@ def plot_or_not(show,plot_name=None,dpi=480):
 	elif show == None :
 		pass 
 
+def get_total_mass_in_particles_with_redshift(df_list):
+	subdf_list 	= list()
+	for subdf in df_list:
+		grouped_df 			= subdf.groupby(['redshift'],as_index=False).agg({'mass':sum})
+		grouped_df.name 	= subdf.name
+		subdf_list.append(grouped_df)
+	add_assembly_column(subdf_list)
+	return pd.concat(subdf_list)
+
+def plot_total_mass_in_particles_with_redshift(df_list,show=True):
+	prepare_plot()
+	dist_df 		= get_total_mass_in_particles_with_redshift(df_list)
+	hue 			= 'assembly'
+	g 				= sns.relplot(data=dist_df,
+								  x='redshift',
+								  y='mass',
+								  hue= hue,
+								  kind='scatter').set(xlabel='Redshift',
+								  ylabel='Total Mass $M_{\odot}$')		# Plots a scatter plot. To plot histogram instead, use displot with kind='hist'. Counts are then computed automatically.
+	g_axis_level 	= sns.lineplot(data=dist_df,
+								   x='redshift',
+								   y='mass',
+								   hue= hue,
+								   ax=g.ax,
+								   legend=False)		# Plots a line plot above which scatter points will lie.
+	g._legend.set_title(capitalize_first_letter(str(hue)))
+	plot_or_not(show,plot_name='total_mass_wrt_redshift')
+	return  							# No return value. Plot is either shown or saved, or nothing is done.
+
+
 # ============================================ Main program =============================================
 
 
@@ -308,8 +338,10 @@ if __name__ == '__main__' :
 
 	# ------- Plot the particle number distribution for all assembly modes.
 
-	# plot_particle_distribution(df_list,show=False)
+	# plot_particle_distribution(df_list,show=True)
 
-	# plot_mass_distribution(df_list,show=False)
+	# plot_mass_distribution(df_list,show=True)
 
-	# plot_mass_distribution_with_redshift(df_list,show=False)
+	# plot_mass_distribution_with_redshift(df_list,show=True)
+
+	# plot_total_mass_in_particles_with_redshift(df_list,show=True)
