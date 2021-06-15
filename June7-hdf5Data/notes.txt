@@ -7,3 +7,4 @@ TODO :
 Test for no hdf5 files - get_files() in plotter.py
 Test for other columns passed as parameter col - plot_particle_distribution() in plotter.py
 Improve df_list assignment to only create dataframes that are needed in the list instead of making all dataframes and later filtering out the ones needed -- plotting is bottleneck, not the reading to dataframes.
+Handle units properly using astropy
