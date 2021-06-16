@@ -49,7 +49,7 @@ def get_directory(directory):
 	dir_dict['gm_late_data_dir']	= os.path.join(dir_dict['data_dir'], 'gm_late')
 	dir_dict['plots_dir']			= os.path.join(dir_dict['root_dir'], 'plots')
 
-	if directory == 'plotter':
+	if directory == 'plotter':							# If plotter function calls this function, return the plotting subdirectory in th "plots" directory.
 		frame 				= inspect.stack()[-1]
 		plot_subdir_path	= frame[0].f_code.co_filename
 		plot_subdir 		= os.path.splitext(os.path.basename(plot_subdir_path))[0]
@@ -222,6 +222,8 @@ def plot_or_not(show,plot_name=None,dpi=480,ftype='png',bbox_inches='tight'):
 	show		- Shows an 'interactive' plot if True, else saves the plot if False. If set to None, does nothing.
 	plot_name	- If set, plot is saved using plot_name if show is set to False. If show is set to False, yet plot_name is not provided, a random number is generated for filename.
 	dpi 		- dots per inch in the saved plot, default 480.
+	ftype 		- file type of image to save, default .png.
+	bbox_inches	- bounding box layout when saving a figure, default tight layout.
 	'''
 	if show == True :
 		plt.show()
@@ -233,11 +235,19 @@ def plot_or_not(show,plot_name=None,dpi=480,ftype='png',bbox_inches='tight'):
 	elif show == None :
 		pass 
 
-def make_gif(directory,fps):
-	images 	= list()
-	for fname in sorted(os.listdir(directory),reverse=True):
-		path  	= os.path.join(directory,fname)
-		images.append(imageio.imread(path))
-	imageio.mimsave(os.path.join(directory,'animation.gif'),images,fps=fps)
+def make_gif(dir_list,fps):
+	'''
+	Makes an animated gif from images. The directory should contain only the image files.
+	Parameters	:
+	dir_list 	- list of directories containing image files. The created animations are saved to same directories by default.
+	fps 		- frames per second in the animation.
+	'''
+	for directory in dir_list:
+		images 	= list()
+		for fname in sorted(os.listdir(directory),reverse=True):
+			path  	= os.path.join(directory,fname)
+			images.append(imageio.imread(path))
+		imageio.mimsave(os.path.join(directory,'animation.gif'),images,fps=fps)
+	return
 
 # ============================================ Main program =============================================

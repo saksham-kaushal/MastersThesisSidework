@@ -3,12 +3,23 @@ from plotter import *
 # ===================================== User-defined function definitions ===============================
 
 def set_square_aspect(grid):
+	'''
+	Sets square shape for the plotting axes of a FacetGrid type plot and returns the modified grid. Unlike FacetGrid's aspect parameter, this does not consider the axes labels and ticks while making the figure square shaped.
+	Parameters	:
+	grid 	- a seaborn FacetGrid instance, or similar grid plot with axes attribute.
+	'''
 	for axis in grid.axes:
 		for ax in axis:
 			ax.set_box_aspect(1)
 	return grid
 
-def plot_galaxy_coordinates_combined(df_list):
+def plot_galaxy_coordinates_combined(df_list, show=True):
+	'''
+	Plots the coordinates of star particles in a galaxy along x-y, y-z and z-x planesover different redshifts in a single image with plots in different rows corresponding to plots at different redshifts. Three different figures are plotted for the three different planes.
+	Parameters	:
+	df_list 	- list of dataframes constructed from hdf5 files, containging x, y and z coordinates of particles.
+	show 		- parameter to control showing or saving of plots, defaults to showing.
+	'''
 	palette 	= itertools.cycle(sns.color_palette())
 	row 		= 'redshift'
 	for df in df_list:
@@ -28,7 +39,7 @@ def plot_galaxy_coordinates_combined(df_list):
 		g1.set_titles(row_template=capitalize_first_letter(row)+'= {row_name}')
 		g1 	= set_square_aspect(g1)
 		g1.fig.subplots_adjust(hspace=0)
-		plot_or_not(show=False,plot_name=str(df.name)+'_x-y_coordinates_evolution',dpi =240)
+		plot_or_not(show=show,plot_name=str(df.name)+'_x-y_coordinates_evolution',dpi =240)
 
 		prepare_plot(font_scale=1.4)
 		g2 	= sns.relplot(
@@ -45,7 +56,7 @@ def plot_galaxy_coordinates_combined(df_list):
 		g2.set_titles(row_template=capitalize_first_letter(row)+'= {row_name}')
 		g2 	= set_square_aspect(g2)
 		g2.fig.subplots_adjust(hspace=0)
-		plot_or_not(show=False,plot_name=str(df.name)+'_y-z_coordinates_evolution',dpi =240)
+		plot_or_not(show=show,plot_name=str(df.name)+'_y-z_coordinates_evolution',dpi =240)
 
 		prepare_plot(font_scale=1.4)
 		g3 	= sns.relplot(
@@ -62,11 +73,17 @@ def plot_galaxy_coordinates_combined(df_list):
 		g3.set_titles(row_template=capitalize_first_letter(row)+'= {row_name}')
 		g3 	= set_square_aspect(g3)
 		g3.fig.subplots_adjust(hspace=0)
-		plot_or_not(show=False,plot_name=str(df.name)+'_z-x_coordinates_evolution',dpi =240)
+		plot_or_not(show=show,plot_name=str(df.name)+'_z-x_coordinates_evolution',dpi =240)
 		# plot_or_not(show=True)
 	return
 
-def plot_galaxy_coordinates_individual(df_list):
+def plot_galaxy_coordinates_individual(df_list, show=True):
+	'''
+	Plots the coordinates of star particles of a galaxy in x, y and z axes combined in a single 3D plot for each redshift value. 
+	Parameters	:
+	df_list 	- list of dataframes constructed from hdf5 files, containging x, y and z coordinates of particles.
+	show 		- parameter to control showing or saving of plots, defaults to showing.
+	'''
 	palette 	= itertools.cycle(sns.color_palette())
 	row 		= 'redshift'
 	for df in df_list:
@@ -80,6 +97,7 @@ def plot_galaxy_coordinates_individual(df_list):
 				ax.set_box_aspect(1)
 				ax.set_xlim([-0.03,0.03])
 				ax.set_ylim([-0.03,0.03])
+
 			sns.scatterplot(
 				data	= row_value_group,
 				x 		= 'coords_x',
@@ -100,6 +118,7 @@ def plot_galaxy_coordinates_individual(df_list):
 				).set(xlabel='y [Mpc]',ylabel='z [Mpc]')
 			axes[1].set_yticklabels([])
 			axes[1].set_title('View in y-z plane',loc='left')
+
 			sns.scatterplot(
 				data	= row_value_group,
 				x 		= 'coords_z',
@@ -110,13 +129,19 @@ def plot_galaxy_coordinates_individual(df_list):
 				).set(xlabel='z [Mpc]',ylabel='x [Mpc]')
 			axes[2].set_yticklabels([])
 			axes[2].set_title('View in z-x plane',loc='left')
+
 			fig.suptitle(str(df.name)+', '+capitalize_first_letter(row)+'='+str(row_value[0]))
 			fig.tight_layout()
-			plot_or_not(show=False, plot_name=os.path.join(str(df.name),str(row_value[0])),dpi=240)
-			# plot_or_not(show=True)
+			plot_or_not(show=show, plot_name=os.path.join(str(df.name),str(row_value[0])),dpi=240)
 	return
 
-def plot_galaxy_coordinates_3d(df_list):
+def plot_galaxy_coordinates_3d(df_list,show=True):
+	'''
+	Plots the coordinates of star particles of a galaxy along x-y, y-z and z-x planes combined in a single image for each redshift value. 
+	Parameters	:
+	df_list 	- list of dataframes constructed from hdf5 files, containging x, y and z coordinates of particles.
+	show 		- parameter to control showing or saving of plots, defaults to showing.
+	'''
 	palette 	= itertools.cycle(sns.color_palette())
 	row 		= 'redshift'
 	for df in df_list:
@@ -143,8 +168,7 @@ def plot_galaxy_coordinates_3d(df_list):
 			axes.set_zlabel('z [Mpc]')
 			fig.suptitle(str(df.name)+', '+capitalize_first_letter(row)+'='+str(row_value[0]), y=0.92)
 			fig.tight_layout()
-			plot_or_not(show=False, plot_name=os.path.join('3d',str(df.name),str(row_value[0])))
-			# plot_or_not(show=True)
+			plot_or_not(show=show, plot_name=os.path.join('3d',str(df.name),str(row_value[0])))
 	return
 
 
@@ -183,6 +207,15 @@ if __name__ == '__main__' :
 
 	# plot_galaxy_coordinates_3d(df_list)
 
-	gif_dirs 	= ['GM-Early','Organic','GM-Late',os.path.join('3d','GM-Early'),os.path.join('3d','Organic'),os.path.join('3d','GM-Late')]
-	for subdir in gif_dirs:
-		make_gif(os.path.join(get_directory('plotter'),subdir),fps=3)
+	gif_dirs 			= [
+							'GM-Early',
+							'Organic',
+							'GM-Late',
+							os.path.join('3d','GM-Early'),
+							os.path.join('3d','Organic'),
+							os.path.join('3d','GM-Late')
+						  ]
+
+	dir_list			= [os.path.join(get_directory('plotter'),subdir) for subdir in gif_dirs]
+	
+	make_gif(dir_list,fps=3)
