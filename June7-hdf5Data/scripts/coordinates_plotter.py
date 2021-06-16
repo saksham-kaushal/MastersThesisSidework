@@ -175,7 +175,7 @@ def plot_galaxy_coordinates_3d(df_list,show=True):
 # ============================================ Main Program =============================================
 
 if __name__ == '__main__' :
-	# ------- Get hdf5 file handles list for each type of assembly.
+	# ------- Get HDF5 file handles list for each type of assembly.
 
 	gm_early_files		= get_files(get_directory('gm_early_data'))
 	organic_files		= get_files(get_directory('organic_data'))
@@ -191,6 +191,11 @@ if __name__ == '__main__' :
 	gm_early_df 		= get_df(gm_early_files,cols)
 	organic_df 			= get_df(organic_files,cols)
 	gm_late_df 			= get_df(gm_late_files,cols)
+
+	# ------- Close HDF5 file handles
+
+	for hdf5_files_list in [gm_early_files,organic_files,gm_late_files]:
+		close_hdf5_files(hdf5_files_list)
 
 	# ------- Provide plot-friendly names to dataframes for deffrent assembly modes.
 	

@@ -32,6 +32,16 @@ def add_assembly_column(df_list):
 		df['assembly']	= df.name
 	return df_list
 
+def close_hdf5_files(h5_files_list):
+	'''
+	Closes every file handle in a list of HDF5 file handles.
+	Parameters	:
+	hdf5_files_list 	- a list containing open HDF5 file handles.
+	'''
+	for h5_file in h5_files_list:
+		h5_file.close()
+	return
+
 # ----------------------- Getter functions --------------------------------
 
 def get_directory(directory):
