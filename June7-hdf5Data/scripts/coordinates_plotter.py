@@ -63,7 +63,7 @@ def plot_galaxy_coordinates_combined(df_list):
 		g3 	= set_square_aspect(g3)
 		g3.fig.subplots_adjust(hspace=0)
 		plot_or_not(show=False,plot_name=str(df.name)+'_z-x_coordinates_evolution',dpi =240)
-		plot_or_not(show=True)
+		# plot_or_not(show=True)
 	return
 
 def plot_galaxy_coordinates_individual(df_list):
