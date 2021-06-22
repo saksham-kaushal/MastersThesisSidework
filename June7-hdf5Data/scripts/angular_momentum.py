@@ -11,6 +11,9 @@ def get_numpy_arrays(df):
 def get_rxv(coords, velocities):
 	return np.cross(coords,velocities)
 
+def get_specific_angular_momentum(rxv):
+	return np.sum(rxv, axis=0)
+
 def get_angular_momentum(rxv, mass):
 	return np.sum(np.transpose(np.multiply(mass, np.transpose(rxv))),axis=0)
 
@@ -23,6 +26,14 @@ def get_norm(param3d):
 def get_kinetic_energy(velocities,masses):
 	return np.sum(0.5*masses*np.square(get_norm(velocities)),axis=0)
 
+def execute_once(func):
+	def wrapper_func(*args,**kwargs):
+		if not flag:
+			flag = True
+			return func(*args,**kwargs)
+	flag = True
+	return wrapper_func
+
 # ============================================ Main Program =============================================
 
 if __name__ == '__main__' :
@@ -30,26 +41,18 @@ if __name__ == '__main__' :
 	assembly_list 			= ['gm_early','organic','gm_late']
 	# assembly_list 				= ['organic']
 
-	# ------- Get HDF5 file handles list for each type of assembly.
+	# ------- Get HDF5 file handles list for each type of assembly and store in a dictionary.
 
 	files  = {str(assembly):get_files(get_directory(str(assembly)+'_data')) for assembly in assembly_list}
-
-	# gm_early_files		= get_files(get_directory('gm_early_data'))
-	# organic_files		= get_files(get_directory('organic_data'))
-	# gm_late_files		= get_files(get_directory('gm_late_data'))
 
 	# # ------- Available fields for cols :
 	# # ------- 'coords_x', 'coords_y', 'coords_z', 'vel_x', 'vel_y', 'vel_z', 'mass', 'redshift'
 	
 	cols				= ['coords_x', 'coords_y', 'coords_z', 'vel_x', 'vel_y', 'vel_z', 'mass']
 
-	# # ------- Get dataframe containing data for each type of assembly mode.
+	# # ------- Get dataframe containing data for each type of assembly mode and store in a dictionary.
 
 	df 		= {str(assembly):get_df(files[str(assembly)],cols) for assembly in assembly_list}
-
-	# gm_early_df 		= get_df(gm_early_files,cols)
-	# organic_df 			= get_df(organic_files,cols)
-	# gm_late_df 			= get_df(gm_late_files,cols)
 
 	# # ------- Close HDF5 file handles
 
@@ -61,49 +64,81 @@ if __name__ == '__main__' :
 	assembly_names  	= {'gm_early':'GM-Early','organic':'Organic','gm_late':'GM-Late'}
 	for assembly in assembly_list:
 		df[assembly].name  	= assembly_names[assembly]	
-	# gm_early_df.name  	= 'GM-Early'
-	# organic_df.name  	= 'Organic'
-	# gm_late_df.name  	= 'GM-Late'
-
-	# gm_early_L  		= dict()
-	# organic_L  		= dict()
-	# gm_late_L  		= dict()
 
 	computed_columns  		= [
-								'redshift',
 								'specific_angular_momentum',
+								'net_specific_angular_momentum',
 								'angular_momentum',
 								'net_angular_momentum',
 								'total_kinetic_energy',
 								'assembly'
 							  ]
+
 	computed_values_df  	= pd.DataFrame(columns=computed_columns)
 	
 
 	computed_values_assembly_list  	= list()
+	units_flag  					= False
+	units_dict 						= dict()
 	for assembly in assembly_list:
 		computed_values_dict  		= dict()
 		for z in df[assembly]['redshift'].unique():
 			subdf 	= df[assembly].groupby('redshift').get_group(z)
 			coords, velocities, masses 	= get_numpy_arrays(subdf)
-			specific_angular_momentum	= get_rxv(coords,velocities)
-			angular_momentum  			= get_angular_momentum(specific_angular_momentum,masses)
+			rxv 						= get_rxv(coords,velocities)
+			specific_angular_momentum	= get_specific_angular_momentum(rxv)
+			net_specific_angular_momentum	= get_norm(specific_angular_momentum)
+			angular_momentum  			= get_angular_momentum(rxv,masses)
 			net_angular_momentum  		= get_norm(angular_momentum)
 			total_kinetic_energy  		= get_kinetic_energy(velocities,masses)
 			computed_values_dict[z]  	= [ 
-											specific_angular_momentum,
-											angular_momentum,
-											net_angular_momentum,
-											total_kinetic_energy,
+											specific_angular_momentum.value,
+											net_specific_angular_momentum.value,
+											angular_momentum.value,
+											net_angular_momentum.value,
+											total_kinetic_energy.value,
 											assembly
 										  ]
-		computed_values_assembly_df  	= pd.DataFrame.from_dict(computed_values_dict,orient='index',columns=computed_columns[1:])
-		computed_values_assembly_df['redshift'] 	= computed_values_assembly_df.index
+			if not units_flag:
+				units_dict['coords']  						= coords.unit
+				units_dict['velocities']	  				= velocities.unit
+				units_dict['masses']  						= masses.unit
+				units_dict['specific_angular_momentum']		= specific_angular_momentum.unit
+				units_dict['net_specific_angular_momentum']	= net_specific_angular_momentum.unit
+				units_dict['angular_momentum']  			= angular_momentum.unit
+				units_dict['net_angular_momentum']  		= net_angular_momentum.unit
+				units_dict['total_kinetic_energy']  		= total_kinetic_energy.unit
+				
+				units_flag 									= True
 
-		computed_values_assembly_list.append(computed_values_assembly_df)
+		computed_values_assembly_df  						= pd.DataFrame.from_dict(
+																					computed_values_dict,
+																					orient='index',
+																					columns=computed_columns
+																					)
+		computed_values_assembly_df['redshift'] 			= computed_values_assembly_df.index
+		computed_values_assembly_df['expansion_factor'] 	= 1/(1+computed_values_assembly_df['redshift'])
 
-	computed_values_df 		= pd.concat(computed_values_assembly_list)
-	print(computed_values_df)
+		computed_values_assembly_list.append(computed_values_assembly_df.convert_dtypes())
+
+	computed_values_df 		= pd.concat(computed_values_assembly_list,ignore_index=True)
+	# print(computed_values_df.loc[1:3,'net_specific_angular_momentum'])
+	
+	prepare_plot()
+	g = sns.relplot(
+				data 	= computed_values_df, 
+				x 		= 'expansion_factor',
+				y  		= 'net_specific_angular_momentum',
+				col  	= 'assembly',
+				hue  	= 'assembly',
+				kind  	= 'scatter'
+				)
+	for axes in g.axes:
+		for axis in axes:
+			axis.semilogy()
+	plot_or_not(True)
+
+	# print(computed_values_df)
 
 
 
