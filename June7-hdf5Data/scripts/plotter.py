@@ -262,4 +262,20 @@ def make_gif(dir_list,fps):
 		imageio.mimsave(os.path.join(directory,'animation.gif'),images,fps=fps)
 	return
 
+def redshift_x_axis(ax, ax_primary,zvalues=[0.0,0.125,0.25,0.5,1.0,2.5,5.0,7.0]):
+	'''
+	Function mapping of ticks for a secondary redshift axis corresponding to cosmological lookback time.
+	Parameters:
+	ax			= secondary redshift axis, probably defined using matplotlib's twinx/twiny function
+	ax_primary 	= primary lookback time axis
+	'''
+	cosmology = FlatLambdaCDM(100.*0.6777,Om0=0.307,Ob0=0.04825) # Define a flat Lambda-CDM cosmology with parameters mentioned in Schaye et al. 2015
+	zvals 		= np.array(zvalues) # Redshift tick values
+	time_in_Gyr = cosmology.age(zvals).value 					 # Lookback time corresponding to redshift tick values
+	ax.set_xticks(time_in_Gyr)									 # Position ticks at lookback times corresponding to redshift tick values
+	ax.set_xticklabels('{:g}'.format(z) for z in zvals)			 # Rename lookback time ticks to corresponding redshift values
+	ax.set_xlim(ax_primary.get_xlim())							 # Set equal axis limits for the two x-axes
+	return ax
+
+
 # ============================================ Main program =============================================

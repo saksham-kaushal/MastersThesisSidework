@@ -26,13 +26,50 @@ def get_norm(param3d):
 def get_kinetic_energy(velocities,masses):
 	return np.sum(0.5*masses*np.square(get_norm(velocities)),axis=0)
 
-def execute_once(func):
-	def wrapper_func(*args,**kwargs):
-		if not flag:
-			flag = True
-			return func(*args,**kwargs)
-	flag = True
-	return wrapper_func
+def get_plot_axes_titles():
+	title  									= dict()
+	title['redshift']						= 'Redshift'
+	title['net_specific_angular_momentum']	= 'Total Specific Angular Momentum [$km$ $Mpc$ $s^{-1}$]'
+	title['expansion_factor']				= 'Expansion Factor'
+	title['net_angular_momentum']			= 'Total Angular Momentum [$km$ $Mpc$ $M_{\odot}$ $s^{-1}$]'
+	title['total_kinetic_energy']			= 'Total Kinetic Energy [$km^{2}$ $M_{\odot}$ $s^{-2}$]'
+	title['time'] 							= 'Time [$Gyr$]'
+	title['masses']							= 'Mass [$M_{\odot}$]'
+	return title
+
+def plot_expansion_factor_net_specific_angular_momentum(df,assembly_names,show=True):
+	prepare_plot()
+	col = 'assembly'
+	g 	= sns.relplot(
+					data 	= computed_values_df, 
+					x 		= 'expansion_factor',
+					y  		= 'net_specific_angular_momentum',
+					col  	= col,
+					hue  	= col,
+					kind  	= 'scatter',
+					legend 	= False
+					).set(
+					xlabel 	= get_plot_axes_titles()['expansion_factor'],
+					ylabel 	= get_plot_axes_titles()['net_specific_angular_momentum'])
+	for row_val,ax in g.axes_dict.items():
+		row_val  	= assembly_names[row_val]
+		ax.set_title(capitalize_first_letter(col)+' = '+str(row_val))
+
+	for axes in g.axes:
+		for axis in axes:
+			powerlaw_x = np.linspace(axis.get_xlim()[0],axis.get_xlim()[1],10)
+			powerlaw_y = 20*powerlaw_x**(1.5)
+			axis.plot(
+							powerlaw_x,
+							powerlaw_y,
+							color='black',
+							ls='--',
+							lw=0.5
+						)
+			axis.loglog()
+
+	plot_or_not(show=show,plot_name='expansion_factor-net_specific_angular_momentum')
+	return
 
 # ============================================ Main Program =============================================
 
@@ -121,70 +158,8 @@ if __name__ == '__main__' :
 
 		computed_values_assembly_list.append(computed_values_assembly_df.convert_dtypes())
 
+
 	computed_values_df 		= pd.concat(computed_values_assembly_list,ignore_index=True)
-	# print(computed_values_df.loc[1:3,'net_specific_angular_momentum'])
 	
-	prepare_plot()
-	g = sns.relplot(
-				data 	= computed_values_df, 
-				x 		= 'expansion_factor',
-				y  		= 'net_specific_angular_momentum',
-				col  	= 'assembly',
-				hue  	= 'assembly',
-				kind  	= 'scatter'
-				)
-	for axes in g.axes:
-		for axis in axes:
-			axis.semilogy()
-	plot_or_not(True)
+	plot_expansion_factor_net_specific_angular_momentum(computed_values_df,assembly_names,show=False)
 
-	# print(computed_values_df)
-
-
-
-	# for z in sorted(gm_early_df['redshift'].unique(),reverse=True):
-
-	# 	gm_early_subdf 	= gm_early_df.groupby('redshift').get_group(z)
-	# 	organic_subdf 	= organic_df.groupby('redshift').get_group(z)
-	# 	gm_late_subdf 	= gm_late_df.groupby('redshift').get_group(z)
-
-	# 	gm_early_coords, gm_early_velocities, gm_early_masses 	= get_numpy_arrays(gm_early_subdf)			
-	# 	organic_coords,	organic_velocities, organic_masses		= get_numpy_arrays(organic_subdf)
-	# 	gm_late_coords,	gm_late_velocities, gm_late_masses		= get_numpy_arrays(gm_late_subdf)
-
-	# 	gm_early_rxv	= get_rxv(gm_early_coords,gm_early_velocities)
-	# 	organic_rxv		= get_rxv(organic_coords,organic_velocities)
-	# 	gm_late_rxv		= get_rxv(gm_late_coords,gm_late_velocities)
-
-	# 	gm_early_L[z]  	= get_net_angular_momentum(gm_early_rxv,gm_early_masses)
-	# 	organic_L[z]	= get_net_angular_momentum(organic_rxv,organic_masses)
-	# 	gm_late_L[z] 	= get_net_angular_momentum(gm_late_rxv,gm_late_masses)
-
-		
-	# 	# gm_early_KE 	= get_net_kinetic_energy(gm_early_velocities,gm_early_masses)
-	# 	# organic_KE 		= get_net_kinetic_energy(organic_velocities,organic_masses)
-	# 	# gm_late_KE 		= get_net_kinetic_energy(gm_late_velocities,gm_late_masses)
-
-	# 	# print(z, gm_early_KE.si,organic_KE.si,gm_late_KE.si)
-	# # fig 			= plt.figure()
-	# # ax  			= fig.add_subplot(projection='3d')
-	# # ax.quiver(0,0,0,100,120,14,length=0.05)
-	# # ax.set_xlabel('x')
-	# # ax.set_ylabel('y')
-	# # ax.set_zlabel('z')
-	# # plt.show()
-
-	# # 	plt.scatter(z,get_norm(gm_late_L))
-	# # 	plt.semilogy()
-	# # plt.show()
-	# gm_early_L_df  	= pd.DataFrame.from_dict(gm_early_L,orient='index')
-	# organic_L_df  	= pd.DataFrame.from_dict(organic_L,orient='index')
-	# gm_late_L_df  	= pd.DataFrame.from_dict(gm_late_L,orient='index')
-
-	# gm_early_L_df.name 	= 'GM-Early'
-	# organic_L_df.name 	= 'Organic'
-	# gm_late_L_df.name 	= 'GM-Late'
-
-	# L_df  			= pd.concat()
-	# print(gm_early_L, organic_L, gm_late_L)
-	# 	
