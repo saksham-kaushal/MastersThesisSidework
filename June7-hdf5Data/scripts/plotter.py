@@ -3,6 +3,7 @@ import pandas as pd
 import h5py
 import matplotlib.pyplot as plt
 import seaborn as sns
+import astropy.units as u
 import os
 import re 
 import itertools
