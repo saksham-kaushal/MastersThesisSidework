@@ -38,7 +38,7 @@ def get_plot_axes_titles():
 	return title
 
 def plot_expansion_factor_net_specific_angular_momentum(df,assembly_names,show=True):
-	prepare_plot()
+	prepare_plot(font_scale=1.25)
 	col = 'assembly'
 	g 	= sns.relplot(
 					data 	= computed_values_df, 
@@ -51,14 +51,14 @@ def plot_expansion_factor_net_specific_angular_momentum(df,assembly_names,show=T
 					).set(
 					xlabel 	= get_plot_axes_titles()['expansion_factor'],
 					ylabel 	= get_plot_axes_titles()['net_specific_angular_momentum'])
-	for row_val,ax in g.axes_dict.items():
-		row_val  	= assembly_names[row_val]
-		ax.set_title(capitalize_first_letter(col)+' = '+str(row_val))
+	for col_val,ax in g.axes_dict.items():
+		col_val  	= assembly_names[col_val]
+		ax.set_title(str(col_val)+' '+capitalize_first_letter(col),fontdict={'fontsize':15})
 
 	for axes in g.axes:
 		for axis in axes:
 			powerlaw_x = np.linspace(axis.get_xlim()[0],axis.get_xlim()[1],10)
-			powerlaw_y = 20*powerlaw_x**(1.5)
+			powerlaw_y = 1e2*powerlaw_x**(1.5)
 			axis.plot(
 							powerlaw_x,
 							powerlaw_y,
@@ -70,6 +70,109 @@ def plot_expansion_factor_net_specific_angular_momentum(df,assembly_names,show=T
 
 	plot_or_not(show=show,plot_name='expansion_factor-net_specific_angular_momentum')
 	return
+
+def plot_expansion_factor_net_angular_momentum(df,assembly_names,show=True):
+	prepare_plot(font_scale=1.25)
+	col = 'assembly'
+	g 	= sns.relplot(
+					data 	= df, 
+					x 		= 'expansion_factor',
+					y  		= 'net_angular_momentum',
+					col  	= col,
+					hue  	= col,
+					kind  	= 'scatter',
+					legend 	= False
+					).set(
+					xlabel 	= get_plot_axes_titles()['expansion_factor'],
+					ylabel 	= get_plot_axes_titles()['net_angular_momentum'])
+	for col_val,ax in g.axes_dict.items():
+		col_val  	= assembly_names[col_val]
+		ax.set_title(str(col_val)+' '+capitalize_first_letter(col),fontdict={'fontsize':15})
+
+	for axes in g.axes:
+		for axis in axes:
+			powerlaw_x = np.linspace(axis.get_xlim()[0],axis.get_xlim()[1],10)
+			powerlaw_y = 1e8*powerlaw_x**(1.5)
+			axis.plot(
+							powerlaw_x,
+							powerlaw_y,
+							color='black',
+							ls='--',
+							lw=0.5
+						)
+			axis.loglog()
+
+	plot_or_not(show=show,plot_name='expansion_factor-net_angular_momentum')
+	return
+
+def get_secondary_x_axis(**kwargs):
+	axis 		= plt.gca()
+	secondary_x = axis.twiny()
+	secondary_x = time_x_axis(secondary_x,axis)
+	return
+
+def reverse_xaxis(**kwargs):
+	axis 	= plt.gca()
+	axis.invert_xaxis()
+	return
+
+def plot_redshift_plots(df,yaxis,assembly_names,show=True):
+	prepare_plot(font_scale=1.25)
+	col 	= 'assembly'
+	g 	= sns.relplot(
+					data 	= df, 
+					x 		= 'redshift',
+					y  		= yaxis,
+					col  	= col,
+					hue  	= col,
+					kind  	= 'scatter',
+					legend 	= False
+					)
+
+	g.map(reverse_xaxis)
+	g.map(get_secondary_x_axis)
+	g.map(plt.gca().semilogy)
+	g.set(
+			xlabel 	= get_plot_axes_titles()['redshift'],
+			ylabel 	= get_plot_axes_titles()[yaxis]
+		  )
+	for col_val,ax in g.axes_dict.items():
+		col_val  	= assembly_names[col_val]
+		ax.set_title(str(col_val)+' '+capitalize_first_letter(col),pad=10,fontdict={'fontsize':15})
+
+	plot_or_not(show=show,plot_name='redshift-'+str(yaxis))
+	return
+
+def plot_time_plots(df,yaxis,assembly_names,show=True):
+	prepare_plot(font_scale=1.25)
+	col 	= 'assembly'
+	cosmology 	= FlatLambdaCDM(100.*0.6777,Om0=0.307,Ob0=0.04825)
+	df['time']	= df['redshift'].apply(lambda x: cosmology.age(x).value)
+	
+	g 	= sns.relplot(
+					data 	= df, 
+					x 		= 'time',
+					y  		= yaxis,
+					col  	= col,
+					hue  	= col,
+					kind  	= 'scatter',
+					legend 	= False
+					).set(
+					xlabel 	= get_plot_axes_titles()['time'],
+					ylabel 	= get_plot_axes_titles()[yaxis])
+	for col_val,ax in g.axes_dict.items():
+		col_val  	= assembly_names[col_val]
+		ax.set_title(str(col_val)+' '+capitalize_first_letter(col),pad=10,fontdict={'fontsize':15})
+
+	for axes in g.axes:
+		for axis in axes:
+			axis.semilogy()
+			secondary_x = axis.twiny()
+			redshift_x_axis(secondary_x,axis)
+
+	plot_or_not(show=show,plot_name='time-'+str(yaxis))
+	return
+
 
 # ============================================ Main Program =============================================
 
@@ -155,11 +258,18 @@ if __name__ == '__main__' :
 																					)
 		computed_values_assembly_df['redshift'] 			= computed_values_assembly_df.index
 		computed_values_assembly_df['expansion_factor'] 	= 1/(1+computed_values_assembly_df['redshift'])
-
 		computed_values_assembly_list.append(computed_values_assembly_df.convert_dtypes())
 
-
 	computed_values_df 		= pd.concat(computed_values_assembly_list,ignore_index=True)
-	
+
 	plot_expansion_factor_net_specific_angular_momentum(computed_values_df,assembly_names,show=False)
 
+	plot_expansion_factor_net_angular_momentum(computed_values_df,assembly_names,show=False)
+
+	plot_redshift_plots(computed_values_df,'net_specific_angular_momentum',assembly_names,show=False)
+
+	plot_redshift_plots(computed_values_df,'net_angular_momentum',assembly_names,show=False)
+
+	plot_time_plots(computed_values_df,'net_angular_momentum',assembly_names,show=False)
+
+	plot_time_plots(computed_values_df,'net_specific_angular_momentum',assembly_names,show=False)

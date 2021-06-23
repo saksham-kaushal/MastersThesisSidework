@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import astropy
 import astropy.units as u
+from astropy.cosmology import FlatLambdaCDM, z_at_value
 import os
 import re 
 import itertools
@@ -215,7 +216,7 @@ def get_total_mass_in_particles_with_redshift(df_list):
 
 def prepare_plot(context='paper',theme='dark',font_scale=1,rc_kwparams=dict()):
 	'''
-	Set seaborn styling for plots.
+	Set seaborn styling for plots. Use print(sns.axes_style()) for getting a complete list of style attributes
 	'''
 	rc_params	= {
 		'xtick.bottom': True, 
@@ -225,7 +226,9 @@ def prepare_plot(context='paper',theme='dark',font_scale=1,rc_kwparams=dict()):
 		}
 	rc_params.update(rc_kwparams)			# Update parameters by adding parameters passed to function
 	sns.set_context(context,font_scale=font_scale)
-	sns.set_style(theme,rc_params)
+	sns.set(style=theme,font='TeX Gyre Pagella Math')
+	sns.set_style(rc_params)
+	return
 
 def plot_or_not(show,plot_name=None,dpi=480,ftype='png',bbox_inches='tight'):
 	'''
@@ -262,19 +265,30 @@ def make_gif(dir_list,fps):
 		imageio.mimsave(os.path.join(directory,'animation.gif'),images,fps=fps)
 	return
 
-def redshift_x_axis(ax, ax_primary,zvalues=[0.0,0.125,0.25,0.5,1.0,2.5,5.0,7.0]):
+def redshift_x_axis(ax,ax_primary,zvalues=[0.0,0.125,0.25,0.5,1.0,2.5,5.0,7.0]):
 	'''
 	Function mapping of ticks for a secondary redshift axis corresponding to cosmological lookback time.
 	Parameters:
 	ax			= secondary redshift axis, probably defined using matplotlib's twinx/twiny function
 	ax_primary 	= primary lookback time axis
 	'''
-	cosmology = FlatLambdaCDM(100.*0.6777,Om0=0.307,Ob0=0.04825) # Define a flat Lambda-CDM cosmology with parameters mentioned in Schaye et al. 2015
-	zvals 		= np.array(zvalues) # Redshift tick values
+	cosmology 	= FlatLambdaCDM(100.*0.6777,Om0=0.307,Ob0=0.04825) # Define a flat Lambda-CDM cosmology with parameters mentioned in Schaye et al. 2015
+	zvals 		= np.array(zvalues) 							 # Redshift tick values
 	time_in_Gyr = cosmology.age(zvals).value 					 # Lookback time corresponding to redshift tick values
 	ax.set_xticks(time_in_Gyr)									 # Position ticks at lookback times corresponding to redshift tick values
 	ax.set_xticklabels('{:g}'.format(z) for z in zvals)			 # Rename lookback time ticks to corresponding redshift values
 	ax.set_xlim(ax_primary.get_xlim())							 # Set equal axis limits for the two x-axes
+	ax.set_xlabel('Redshift')
+	return ax
+
+def time_x_axis(ax,ax_primary,time_values=[0.5,1,1.5,2,3,5,13.5]):
+	cosmology 	= FlatLambdaCDM(100.*0.6777,Om0=0.307,Ob0=0.04825)
+	tvals  		= np.array(time_values)*u.Gyr
+	z  			= [z_at_value(cosmology.age,t) for t in tvals]
+	ax.set_xticks(z)
+	ax.set_xticklabels('{:g}'.format(t) for t in tvals.value)
+	ax.set_xlim(ax_primary.get_xlim())
+	ax.set_xlabel('Time [$Gyr$]')
 	return ax
 
 
