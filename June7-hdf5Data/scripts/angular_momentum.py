@@ -11,8 +11,8 @@ def get_numpy_arrays(df):
 def get_rxv(coords, velocities):
 	return np.cross(coords,velocities)
 
-def get_specific_angular_momentum(rxv):
-	return np.sum(rxv, axis=0)
+def get_specific_angular_momentum(angular_momentum,masses):
+	return angular_momentum/np.sum(masses)
 
 def get_angular_momentum(rxv, mass):
 	return np.sum(np.transpose(np.multiply(mass, np.transpose(rxv))),axis=0)
@@ -29,10 +29,10 @@ def get_kinetic_energy(velocities,masses):
 def get_plot_axes_titles():
 	title  									= dict()
 	title['redshift']						= 'Redshift'
-	title['net_specific_angular_momentum']	= 'Total Specific Angular Momentum [$km$ $Mpc$ $s^{-1}$]'
+	title['net_specific_angular_momentum']	= 'Total Specific Angular Momentum [$Mpc$ $km$ $s^{-1}$]'
 	title['expansion_factor']				= 'Expansion Factor'
-	title['net_angular_momentum']			= 'Total Angular Momentum [$km$ $Mpc$ $M_{\odot}$ $s^{-1}$]'
-	title['total_kinetic_energy']			= 'Total Kinetic Energy [$km^{2}$ $M_{\odot}$ $s^{-2}$]'
+	title['net_angular_momentum']			= 'Total Angular Momentum [$Mpc$ $M_{\odot}$ $km$ $s^{-1}$]'
+	title['total_kinetic_energy']			= 'Total Kinetic Energy [$M_{\odot}$ $km^{2}$ $s^{-2}$]'
 	title['time'] 							= 'Time [$Gyr$]'
 	title['masses']							= 'Mass [$M_{\odot}$]'
 	return title
@@ -57,8 +57,8 @@ def plot_expansion_factor_net_specific_angular_momentum(df,assembly_names,show=T
 
 	for axes in g.axes:
 		for axis in axes:
-			powerlaw_x = np.linspace(axis.get_xlim()[0],axis.get_xlim()[1],10)
-			powerlaw_y = 1e2*powerlaw_x**(1.5)
+			powerlaw_x = np.linspace(axis.get_xlim()[0],axis.get_xlim()[1],15)
+			powerlaw_y = powerlaw_x**(1.5)
 			axis.plot(
 							powerlaw_x,
 							powerlaw_y,
@@ -226,10 +226,10 @@ if __name__ == '__main__' :
 			subdf 	= df[assembly].groupby('redshift').get_group(z)
 			coords, velocities, masses 	= get_numpy_arrays(subdf)
 			rxv 						= get_rxv(coords,velocities)
-			specific_angular_momentum	= get_specific_angular_momentum(rxv)
-			net_specific_angular_momentum	= get_norm(specific_angular_momentum)
 			angular_momentum  			= get_angular_momentum(rxv,masses)
 			net_angular_momentum  		= get_norm(angular_momentum)
+			specific_angular_momentum	= get_specific_angular_momentum(angular_momentum,masses)
+			net_specific_angular_momentum	= get_norm(specific_angular_momentum)
 			total_kinetic_energy  		= get_kinetic_energy(velocities,masses)
 			computed_values_dict[z]  	= [ 
 											specific_angular_momentum.value,
