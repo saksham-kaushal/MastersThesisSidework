@@ -1,24 +1,92 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  24 JUN 2021 17:17
-entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020)  (format=lualatex 2021.6.22)  25 JUN 2021 16:44
+ restricted system commands enabled.
 **plots.tex
 (./plots.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-04-06>
+Lua module: luaotfload-main 2020-05-06 3.14 luaotfload entry point
+Lua module: luaotfload-init 2020-05-06 3.14 luaotfload submodule / initializatio
+n
+Lua module: lualibs 2020-02-02 2.70 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2020-02-02 2.70 ConTeXt Lua libraries -- extended c
+ollection.
+Lua module: luaotfload-log 2020-05-06 3.14 luaotfload submodule / logging
+Lua module: luaotfload-parsers 2020-05-06 3.14 luaotfload submodule / filelist
+Lua module: luaotfload-configuration 2020-05-06 3.14 luaotfload submodule / conf
+ig file reader
+luaotfload | conf : Root cache directory is "/home/saksham/.texlive2020/texmf-va
+r/luatex-cache/generic-dev/names".
+luaotfload | init : Loading fontloader "fontloader-2020-05-06.lua" from kpse-res
+olved path "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/fontloader-2020-
+05-06.lua".
+Lua-only attribute luaotfload@noligature = 2
+Lua-only attribute luaotfload@syllabe = 3
+luaotfload | init : Context OpenType loader version 0x1.8e353f7ced917p+1
+Lua module: luaotfload-fallback 2020-05-06 3.14 luaotfload submodule / fallback
+Lua module: luaotfload-multiscript 2020-05-06 3.14 luaotfload submodule / multis
+cript
+Lua module: luaotfload-script 2020-05-06 3.14 luaotfload submodule / Script help
+ers
+Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Lua module: luaotfload-loaders 2020-05-06 3.14 luaotfload submodule / callback h
+andling
+Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua module: luaotfload-database 2020-05-06 3.14 luaotfload submodule / database
+Lua module: luaotfload-unicode 2020-05-06 3.14 luaotfload submodule / Unicode he
+lpers
+Lua module: luaotfload-colors 2020-05-06 3.14 luaotfload submodule / color
+Lua-only attribute luaotfload_color_attribute = 4
+Lua module: luaotfload-resolvers 2020-05-06 3.14 luaotfload submodule / resolver
+s
+luaotfload | conf : Root cache directory is "/home/saksham/.texlive2020/texmf-va
+r/luatex-cache/generic-dev/names".
+Lua module: luaotfload-features 2020-05-06 3.14 luaotfload submodule / features
+Lua module: luaotfload-harf-define 2020-05-06 3.14 luaotfload submodule / databa
+se
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_truetype_file'.
+Lua module: luaotfload-harf-plug 2020-05-06 3.14 luaotfload submodule / database
+Inserting `Harf pre_output_filter callback' at position 1 in `pre_output_filter'
+.
+Inserting `Harf wrapup_run callback' at position 1 in `wrapup_run'.
+Inserting `Harf finish_pdffile callback' at position 1 in `finish_pdffile'.
+Inserting `Harf glyph_info callback' at position 1 in `glyph_info'.
+Lua module: luaotfload-letterspace 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-embolden 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-notdef 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-suppress 2020-05-06 3.14 luaotfload submodule / suppress
+Lua module: luaotfload-szss 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-auxiliary 2020-05-06 3.14 luaotfload submodule / auxiliar
+y functions
+Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_fon
+t'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
+t_unsafe'.
+Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
+Lua module: luaotfload-tounicode 2020-05-06 3.14 luaotfload submodule / tounicod
+e
+Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
+. L3 programming layer <2020-04-06>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
-)
-\c@part=\count167
-\c@section=\count168
-\c@subsection=\count169
-\c@subsubsection=\count170
-\c@paragraph=\count171
-\c@subparagraph=\count172
-\c@figure=\count173
-\c@table=\count174
+luaotfload | db : Font names database loaded from /home/saksham/.texlive2020/tex
+mf-var/luatex-cache/generic-dev/names/luaotfload-names.luc)
+\c@part=\count163
+\c@section=\count164
+\c@subsection=\count165
+\c@subsubsection=\count166
+\c@paragraph=\count167
+\c@subparagraph=\count168
+\c@figure=\count169
+\c@table=\count170
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
@@ -27,8 +95,11 @@ File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
-)
-(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
@@ -41,9 +112,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count175
-\Gm@cntv=\count176
-\c@Gm@tempcnt=\count177
+\Gm@cnth=\count171
+\Gm@cntv=\count172
+\c@Gm@tempcnt=\count173
 \Gm@bindingoffset=\dimen135
 \Gm@wd@mp=\dimen136
 \Gm@odd@mp=\dimen137
@@ -66,10 +137,10 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 105.
+Package graphics Info: Driver file: luatex.def on input line 105.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
+File: luatex.def 2018/01/08 v1.0l Graphics/color driver for luatex
 ))
 \Gin@req@height=\dimen143
 \Gin@req@width=\dimen144
@@ -89,21 +160,21 @@ Package caption3 Info: TeX engine: e-TeX on input line 61.
 \caption@hangindent=\dimen151
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count178
-\c@continuedfloat=\count179
+\c@caption@flags=\count174
+\c@continuedfloat=\count175
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
-\c@subfigure=\count180
-\c@subtable=\count181
+\c@subfigure=\count176
+\c@subtable=\count177
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count182
+\l__kernel_color_stack_int=\count178
 \l__pdf_internal_box=\box45
 )
 (./plots.aux)
-\openout1 = `plots.aux'.
+\openout1 = plots.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
@@ -114,6 +185,13 @@ LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 18
+.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
@@ -121,9 +199,9 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: luatex
 * paper: custom
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -156,109 +234,121 @@ LaTeX Font Info:    ... okay on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count183
+\scratchcounter=\count179
 \scratchdimen=\dimen152
 \scratchbox=\box46
-\nofMPsegments=\count184
-\nofMParguments=\count185
+\nofMPsegments=\count180
+\nofMParguments=\count181
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count186
+\MPscratchCnt=\count182
 \MPscratchDim=\dimen153
-\MPnumerator=\count187
-\makeMPintoPDFobject=\count188
+\MPnumerator=\count183
+\makeMPintoPDFobject=\count184
 \everyMPtoPDFconversion=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
+5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<../../plots/angular_momentum/expansion_factor-net_angular_momentum.png, id=1, 
-1096.54669pt x 368.42644pt>
-File: ../../plots/angular_momentum/expansion_factor-net_angular_momentum.png Gr
-aphic file (type png)
+<../../plots/angular_momentum/expansion_factor-net_angular_momentum.png, id=1, 1
+096.54669pt x 368.42644pt>
+File: ../../plots/angular_momentum/expansion_factor-net_angular_momentum.png Gra
+phic file (type png)
 <use ../../plots/angular_momentum/expansion_factor-net_angular_momentum.png>
-Package pdftex.def Info: ../../plots/angular_momentum/expansion_factor-net_angu
-lar_momentum.png  used on input line 24.
-(pdftex.def)             Requested size: 882.03545pt x 296.3606pt.
+Package luatex.def Info: ../../plots/angular_momentum/expansion_factor-net_angul
+ar_momentum.png  used on input line 24.
+(luatex.def)             Requested size: 882.03545pt x 296.3606pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 26.
-<../../plots/angular_momentum/expansion_factor-net_specific_angular_momentum.pn
-g, id=3, 1098.504pt x 368.42644pt>
-File: ../../plots/angular_momentum/expansion_factor-net_specific_angular_moment
-um.png Graphic file (type png)
-<use ../../plots/angular_momentum/expansion_factor-net_specific_angular_momentu
-m.png>
-Package pdftex.def Info: ../../plots/angular_momentum/expansion_factor-net_spec
-ific_angular_momentum.png  used on input line 31.
-(pdftex.def)             Requested size: 882.03545pt x 295.8209pt.
+<../../plots/angular_momentum/expansion_factor-net_specific_angular_momentum.png
+, id=2, 1098.504pt x 368.42644pt>
+File: ../../plots/angular_momentum/expansion_factor-net_specific_angular_momentu
+m.png Graphic file (type png)
+<use ../../plots/angular_momentum/expansion_factor-net_specific_angular_momentum
+.png>
+Package luatex.def Info: ../../plots/angular_momentum/expansion_factor-net_speci
+fic_angular_momentum.png  used on input line 31.
+(luatex.def)             Requested size: 882.03545pt x 295.8209pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 35.
 
-[1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map} <../../plo
-ts/angular_momentum/expansion_factor-net_angular_momentum.png> <../../plots/ang
-ular_momentum/expansion_factor-net_specific_angular_momentum.png>]
-<../../plots/angular_momentum/redshift-net_angular_momentum.png, id=16, 1090.22
-307pt x 370.986pt>
-File: ../../plots/angular_momentum/redshift-net_angular_momentum.png Graphic fi
-le (type png)
+[1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}<../../plots
+/angular_momentum/expansion_factor-net_angular_momentum.png><../../plots/angular
+_momentum/expansion_factor-net_specific_angular_momentum.png>]
+<../../plots/angular_momentum/redshift-net_angular_momentum.png, id=16, 1090.223
+07pt x 370.986pt>
+File: ../../plots/angular_momentum/redshift-net_angular_momentum.png Graphic fil
+e (type png)
 <use ../../plots/angular_momentum/redshift-net_angular_momentum.png>
-Package pdftex.def Info: ../../plots/angular_momentum/redshift-net_angular_mome
-ntum.png  used on input line 44.
-(pdftex.def)             Requested size: 882.03545pt x 300.15169pt.
-<../../plots/angular_momentum/redshift-net_specific_angular_momentum.png, id=17
-, 1090.22307pt x 370.986pt>
-File: ../../plots/angular_momentum/redshift-net_specific_angular_momentum.png G
-raphic file (type png)
+Package luatex.def Info: ../../plots/angular_momentum/redshift-net_angular_momen
+tum.png  used on input line 44.
+(luatex.def)             Requested size: 882.03545pt x 300.15169pt.
+<../../plots/angular_momentum/redshift-net_specific_angular_momentum.png, id=17,
+ 1090.22307pt x 370.986pt>
+File: ../../plots/angular_momentum/redshift-net_specific_angular_momentum.png Gr
+aphic file (type png)
 <use ../../plots/angular_momentum/redshift-net_specific_angular_momentum.png>
-Package pdftex.def Info: ../../plots/angular_momentum/redshift-net_specific_ang
-ular_momentum.png  used on input line 51.
-(pdftex.def)             Requested size: 882.03545pt x 300.15169pt.
- [2 <../../plots/angular_momentum/redshift-net_angular_momentum.png> <../../plo
-ts/angular_momentum/redshift-net_specific_angular_momentum.png>]
-<../../plots/angular_momentum/time-net_angular_momentum.png, id=23, 1096.54669p
-t x 406.21762pt>
-File: ../../plots/angular_momentum/time-net_angular_momentum.png Graphic file (
-type png)
+Package luatex.def Info: ../../plots/angular_momentum/redshift-net_specific_angu
+lar_momentum.png  used on input line 51.
+(luatex.def)             Requested size: 882.03545pt x 300.15169pt.
+ [2<../../plots/angular_momentum/redshift-net_angular_momentum.png><../../plots/
+angular_momentum/redshift-net_specific_angular_momentum.png>]
+<../../plots/angular_momentum/time-net_angular_momentum.png, id=23, 1096.54669pt
+ x 406.21762pt>
+File: ../../plots/angular_momentum/time-net_angular_momentum.png Graphic file (t
+ype png)
 <use ../../plots/angular_momentum/time-net_angular_momentum.png>
-Package pdftex.def Info: ../../plots/angular_momentum/time-net_angular_momentum
-.png  used on input line 69.
-(pdftex.def)             Requested size: 882.03545pt x 326.75966pt.
-<../../plots/angular_momentum/time-net_specific_angular_momentum.png, id=24, 10
-98.504pt x 406.21762pt>
-File: ../../plots/angular_momentum/time-net_specific_angular_momentum.png Graph
-ic file (type png)
+Package luatex.def Info: ../../plots/angular_momentum/time-net_angular_momentum.
+png  used on input line 64.
+(luatex.def)             Requested size: 882.03545pt x 326.75966pt.
+<../../plots/angular_momentum/time-net_specific_angular_momentum.png, id=24, 109
+8.504pt x 406.21762pt>
+File: ../../plots/angular_momentum/time-net_specific_angular_momentum.png Graphi
+c file (type png)
 <use ../../plots/angular_momentum/time-net_specific_angular_momentum.png>
-Package pdftex.def Info: ../../plots/angular_momentum/time-net_specific_angular
-_momentum.png  used on input line 76.
-(pdftex.def)             Requested size: 882.03545pt x 326.16461pt.
- [3 <../../plots/angular_momentum/time-net_angular_momentum.png> <../../plots/a
-ngular_momentum/time-net_specific_angular_momentum.png>] (./plots.aux) ) 
-Here is how much of TeX's memory you used:
- 2880 strings out of 482555
- 47999 string characters out of 5952145
- 281465 words of memory out of 5000000
- 18538 multiletter control sequences out of 15000+600000
- 534163 words of font info for 30 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 41i,7n,42p,284b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on plots.pdf (3 pages, 1991283 bytes).
-PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+Package luatex.def Info: ../../plots/angular_momentum/time-net_specific_angular_
+momentum.png  used on input line 71.
+(luatex.def)             Requested size: 882.03545pt x 326.16461pt.
+<../../plots/angular_momentum/zavala_fig2l.png, id=25, 416.30531pt x 318.74081pt
+>
+File: ../../plots/angular_momentum/zavala_fig2l.png Graphic file (type png)
+<use ../../plots/angular_momentum/zavala_fig2l.png>
+Package luatex.def Info: ../../plots/angular_momentum/zavala_fig2l.png  used on 
+input line 80.
+(luatex.def)             Requested size: 441.01772pt x 337.67882pt.
+ [3<../../plots/angular_momentum/time-net_angular_momentum.png><../../plots/angu
+lar_momentum/time-net_specific_angular_momentum.png>] [4<../../plots/angular_mom
+entum/zavala_fig2l.png>]
+(./plots.aux))
+
+Here is how much of LuaTeX's memory you used:
+ 3035 strings out of 480991
+ 100000,319454 words of node,token memory allocated
+ 427 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 7 attribute, 48 glue_spec,
+ 7 attribute_list, 4 write nodes
+   avail lists: 2:138,3:40,4:12,5:63,6:13,7:666,8:4,9:80,10:11,11:51
+ 20454 multiletter control sequences out of 65536+600000
+ 42 fonts using 4593835 bytes
+ 41i,7n,45p,396b,503s stack positions out of 5000i,500n,10000p,200000b,100000s
+</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></
+usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></us
+r/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on plots.pdf (4 pages, 2176291 bytes).
+
+PDF statistics: 64 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

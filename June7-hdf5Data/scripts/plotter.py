@@ -229,6 +229,12 @@ def prepare_plot(context='paper',theme='dark',font_scale=1,rc_kwparams=dict()):
 	sns.set_context(context,font_scale=font_scale)
 	sns.set(style=theme,font='TeX Gyre Pagella Math')
 	sns.set_style(rc_params)
+	colours  	= [
+					'#772e51', 		# Red/Magenta (lighter alternative '#923563')
+					'#44b677',		# Green
+					'#66b6d2'		# Blue (alternatives '#88ccee',#94c8e0', '#51abcb')
+				]
+	sns.set_palette(sns.color_palette(colours))
 	return
 
 def plot_or_not(show,plot_name=None,dpi=480,ftype='png',bbox_inches='tight'):

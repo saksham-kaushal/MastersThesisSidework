@@ -183,6 +183,7 @@ def plot_zavala_fig2l(zero_redshift_dict,assembly_names,show=True):
 	prepare_plot(theme='darkgrid',font_scale=1.25)
 	fig = plt.figure()
 	ax  = fig.add_subplot()
+	sns.set_palette(sns.color_palette(['#51abcb','#772e51']))
 	sns.lineplot(
 					data=df,
 					x='stellar_particle_mass',
@@ -190,19 +191,10 @@ def plot_zavala_fig2l(zero_redshift_dict,assembly_names,show=True):
 					hue='morphology',
 					ci='sd',
 					ax=ax
-					# kind='line'
-					# legend=False
 					).set(
-					xlabel='$M_{*}$ [$M_{\odot}$]',
-					ylabel='$j_{*}$ [$kpc$ $km$ $s^{-1}$]')
+					xlabel='Total Mass of Stellar Particles [$M_{\odot}$]',
+					ylabel='Specific Angular Momentum [$kpc$ $km$ $s^{-1}$]')
 	
-	# plt.legend(labels=['disc','bulge'])
-	# for axes in g.axes:
-	# 	for axis in axes:
-	# 		axis.loglog()
-	# 		for assembly in zero_redshift_dict.keys():
-	# 			axis.scatter(zero_redshift_dict[assembly][0],zero_redshift_dict[assembly][1]*1e3,label=assembly_names[assembly])
-	# 		g._legend.legend()
 	ax.loglog()
 	for assembly in zero_redshift_dict.keys():
 		ax.scatter(zero_redshift_dict[assembly][0],zero_redshift_dict[assembly][1]*1e3,label=assembly_names[assembly])
