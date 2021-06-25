@@ -63,7 +63,7 @@ def get_directory(directory):
 	dir_dict['plots_dir']			= os.path.join(dir_dict['root_dir'], 'plots')
 	dir_dict['zavala2l_dir']		= os.path.join(dir_dict['data_dir'], 'zavala_fig2l')
 
-	if directory == 'plotter':							# If plotter function calls this function, return the plotting subdirectory in th "plots" directory.
+	if directory == 'plotter':							# If plotter function calls this function, return the plotting subdirectory in the "plots" directory.
 		frame 				= inspect.stack()[-1]
 		plot_subdir_path	= frame[0].f_code.co_filename
 		plot_subdir 		= os.path.splitext(os.path.basename(plot_subdir_path))[0]

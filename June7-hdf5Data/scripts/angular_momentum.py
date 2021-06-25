@@ -173,6 +173,43 @@ def plot_time_plots(df,yaxis,assembly_names,show=True):
 	plot_or_not(show=show,plot_name='time-'+str(yaxis))
 	return
 
+def plot_zavala_fig2l(zero_redshift_dict,assembly_names,show=True):
+	df_list = list()
+	for fname in os.listdir(get_directory('zavala2l')):
+		subdf = pd.read_csv(os.path.join(get_directory('zavala2l'),str(fname)), names=['stellar_particle_mass','specific_angular_momentum'])
+		subdf['morphology'] = str(fname.split(sep='.')[0])
+		df_list.append(subdf)
+	df = pd.concat(df_list)
+	prepare_plot(theme='darkgrid',font_scale=1.25)
+	fig = plt.figure()
+	ax  = fig.add_subplot()
+	sns.lineplot(
+					data=df,
+					x='stellar_particle_mass',
+					y='specific_angular_momentum',
+					hue='morphology',
+					ci='sd',
+					ax=ax
+					# kind='line'
+					# legend=False
+					).set(
+					xlabel='$M_{*}$ [$M_{\odot}$]',
+					ylabel='$j_{*}$ [$kpc$ $km$ $s^{-1}$]')
+	
+	# plt.legend(labels=['disc','bulge'])
+	# for axes in g.axes:
+	# 	for axis in axes:
+	# 		axis.loglog()
+	# 		for assembly in zero_redshift_dict.keys():
+	# 			axis.scatter(zero_redshift_dict[assembly][0],zero_redshift_dict[assembly][1]*1e3,label=assembly_names[assembly])
+	# 		g._legend.legend()
+	ax.loglog()
+	for assembly in zero_redshift_dict.keys():
+		ax.scatter(zero_redshift_dict[assembly][0],zero_redshift_dict[assembly][1]*1e3,label=assembly_names[assembly])
+		ax.legend()
+	
+	plot_or_not(show=show,plot_name='zavala_fig2l')
+	return
 
 # ============================================ Main Program =============================================
 
@@ -220,6 +257,7 @@ if __name__ == '__main__' :
 	computed_values_assembly_list  	= list()
 	units_flag  					= False
 	units_dict 						= dict()
+	zero_redshift_mass_specificL	= dict()
 	for assembly in assembly_list:
 		computed_values_dict  		= dict()
 		for z in df[assembly]['redshift'].unique():
@@ -251,6 +289,9 @@ if __name__ == '__main__' :
 				
 				units_flag 									= True
 
+			if z==0.0:
+				zero_redshift_mass_specificL[assembly] 	= [np.sum(masses), net_specific_angular_momentum]
+
 		computed_values_assembly_df  						= pd.DataFrame.from_dict(
 																					computed_values_dict,
 																					orient='index',
@@ -262,14 +303,16 @@ if __name__ == '__main__' :
 
 	computed_values_df 		= pd.concat(computed_values_assembly_list,ignore_index=True)
 
-	plot_expansion_factor_net_specific_angular_momentum(computed_values_df,assembly_names,show=False)
+	# plot_expansion_factor_net_specific_angular_momentum(computed_values_df,assembly_names,show=False)
 
-	plot_expansion_factor_net_angular_momentum(computed_values_df,assembly_names,show=False)
+	# plot_expansion_factor_net_angular_momentum(computed_values_df,assembly_names,show=False)
 
-	plot_redshift_plots(computed_values_df,'net_specific_angular_momentum',assembly_names,show=False)
+	# plot_redshift_plots(computed_values_df,'net_specific_angular_momentum',assembly_names,show=False)
 
-	plot_redshift_plots(computed_values_df,'net_angular_momentum',assembly_names,show=False)
+	# plot_redshift_plots(computed_values_df,'net_angular_momentum',assembly_names,show=False)
 
-	plot_time_plots(computed_values_df,'net_angular_momentum',assembly_names,show=False)
+	# plot_time_plots(computed_values_df,'net_angular_momentum',assembly_names,show=False)
 
-	plot_time_plots(computed_values_df,'net_specific_angular_momentum',assembly_names,show=False)
+	# plot_time_plots(computed_values_df,'net_specific_angular_momentum',assembly_names,show=False)
+
+	plot_zavala_fig2l(zero_redshift_mass_specificL,assembly_names,show=False)
