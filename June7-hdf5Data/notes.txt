@@ -13,3 +13,8 @@ Create angular momentum vs expansion factor plots
 Create Zavala et al. (2008) figures 3 and 5
 Compare for inner and outer haloes - 30kpc and 200kpc
 0-Gas, 1-DM, 4-Stars
+
+At redshift 0.0
+organic gas mass - 49642423234.639824
+organic dm mass - 7.52283443119462e-32
+organic star mass - 62342459968.00133

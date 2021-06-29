@@ -1,92 +1,24 @@
-This is LuaHBTeX, Version 1.12.0 (TeX Live 2020)  (format=lualatex 2021.6.22)  30 JUN 2021 01:41
- restricted system commands enabled.
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  30 JUN 2021 04:25
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
 **plots.tex
 (./plots.tex
 LaTeX2e <2020-02-02> patch level 5
-Lua module: luaotfload-main 2020-05-06 3.14 luaotfload entry point
-Lua module: luaotfload-init 2020-05-06 3.14 luaotfload submodule / initializatio
-n
-Lua module: lualibs 2020-02-02 2.70 ConTeXt Lua standard libraries.
-Lua module: lualibs-extended 2020-02-02 2.70 ConTeXt Lua libraries -- extended c
-ollection.
-Lua module: luaotfload-log 2020-05-06 3.14 luaotfload submodule / logging
-Lua module: luaotfload-parsers 2020-05-06 3.14 luaotfload submodule / filelist
-Lua module: luaotfload-configuration 2020-05-06 3.14 luaotfload submodule / conf
-ig file reader
-luaotfload | conf : Root cache directory is "/home/saksham/.texlive2020/texmf-va
-r/luatex-cache/generic-dev/names".
-luaotfload | init : Loading fontloader "fontloader-2020-05-06.lua" from kpse-res
-olved path "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/fontloader-2020-
-05-06.lua".
-Lua-only attribute luaotfload@noligature = 2
-Lua-only attribute luaotfload@syllabe = 3
-luaotfload | init : Context OpenType loader version 0x1.8e353f7ced917p+1
-Lua module: luaotfload-fallback 2020-05-06 3.14 luaotfload submodule / fallback
-Lua module: luaotfload-multiscript 2020-05-06 3.14 luaotfload submodule / multis
-cript
-Lua module: luaotfload-script 2020-05-06 3.14 luaotfload submodule / Script help
-ers
-Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
-Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
-Lua module: luaotfload-loaders 2020-05-06 3.14 luaotfload submodule / callback h
-andling
-Inserting `luaotfload.define_font' at position 1 in `define_font'.
-Lua module: luaotfload-database 2020-05-06 3.14 luaotfload submodule / database
-Lua module: luaotfload-unicode 2020-05-06 3.14 luaotfload submodule / Unicode he
-lpers
-Lua module: luaotfload-colors 2020-05-06 3.14 luaotfload submodule / color
-Lua-only attribute luaotfload_color_attribute = 4
-Lua module: luaotfload-resolvers 2020-05-06 3.14 luaotfload submodule / resolver
-s
-luaotfload | conf : Root cache directory is "/home/saksham/.texlive2020/texmf-va
-r/luatex-cache/generic-dev/names".
-Lua module: luaotfload-features 2020-05-06 3.14 luaotfload submodule / features
-Lua module: luaotfload-harf-define 2020-05-06 3.14 luaotfload submodule / databa
-se
-Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_opentype_file'.
-Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_truetype_file'.
-Lua module: luaotfload-harf-plug 2020-05-06 3.14 luaotfload submodule / database
-Inserting `Harf pre_output_filter callback' at position 1 in `pre_output_filter'
-.
-Inserting `Harf wrapup_run callback' at position 1 in `wrapup_run'.
-Inserting `Harf finish_pdffile callback' at position 1 in `finish_pdffile'.
-Inserting `Harf glyph_info callback' at position 1 in `glyph_info'.
-Lua module: luaotfload-letterspace 2020-05-06 3.14 luaotfload submodule / color
-Lua module: luaotfload-embolden 2020-05-06 3.14 luaotfload submodule / color
-Lua module: luaotfload-notdef 2020-05-06 3.14 luaotfload submodule / color
-Lua module: luaotfload-suppress 2020-05-06 3.14 luaotfload submodule / suppress
-Lua module: luaotfload-szss 2020-05-06 3.14 luaotfload submodule / color
-Lua module: luaotfload-auxiliary 2020-05-06 3.14 luaotfload submodule / auxiliar
-y functions
-Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
-font'.
-Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_fon
-t'.
-Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch
-_font'.
-Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
-t_unsafe'.
-Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font
-'.
-Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
-Lua module: luaotfload-tounicode 2020-05-06 3.14 luaotfload submodule / tounicod
-e
-Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
-. L3 programming layer <2020-04-06>
+L3 programming layer <2020-04-06>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
-luaotfload | db : Font names database loaded from /home/saksham/.texlive2020/tex
-mf-var/luatex-cache/generic-dev/names/luaotfload-names.luc)
-\c@part=\count163
-\c@section=\count164
-\c@subsection=\count165
-\c@subsubsection=\count166
-\c@paragraph=\count167
-\c@subparagraph=\count168
-\c@figure=\count169
-\c@table=\count170
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
@@ -95,11 +27,8 @@ mf-var/luatex-cache/generic-dev/names/luaotfload-names.luc)
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
-
-
-Package inputenc Warning: inputenc package ignored with utf8 based engines.
-
-) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
@@ -112,9 +41,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count171
-\Gm@cntv=\count172
-\c@Gm@tempcnt=\count173
+\Gm@cnth=\count175
+\Gm@cntv=\count176
+\c@Gm@tempcnt=\count177
 \Gm@bindingoffset=\dimen135
 \Gm@wd@mp=\dimen136
 \Gm@odd@mp=\dimen137
@@ -137,14 +66,17 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: luatex.def on input line 105.
+Package graphics Info: Driver file: pdftex.def on input line 105.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
-File: luatex.def 2018/01/08 v1.0l Graphics/color driver for luatex
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen143
 \Gin@req@width=\dimen144
 )
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
+
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/01/03 v3.4h Customizing captions (AR)
 
@@ -160,61 +92,52 @@ Package caption3 Info: TeX engine: e-TeX on input line 61.
 \caption@hangindent=\dimen151
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count174
-\c@continuedfloat=\count175
+\c@caption@flags=\count178
+\c@continuedfloat=\count179
 )
-(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
-\c@subfigure=\count176
-\c@subtable=\count177
+\c@subfigure=\count180
+\c@subtable=\count181
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count178
+\l__kernel_color_stack_int=\count182
 \l__pdf_internal_box=\box45
 )
 (./plots.aux)
-\openout1 = plots.aux
+\openout1 = `plots.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 18
-.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: luatex
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: luatex
+* driver: pdftex
 * paper: custom
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(56.9055pt, 882.03545pt, 56.9055pt)
-* v-part:(T,H,B)=(56.9055pt, 1251.92126pt, 56.9055pt)
+* v-part:(T,H,B)=(85.35826pt, 1223.4685pt, 56.9055pt)
 * \paperwidth=995.84645pt
 * \paperheight=1365.73227pt
 * \textwidth=882.03545pt
-* \textheight=1251.92126pt
+* \textheight=1223.4685pt
 * \oddsidemargin=-15.36449pt
 * \evensidemargin=-15.36449pt
-* \topmargin=-52.36449pt
+* \topmargin=-23.91173pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -234,146 +157,161 @@ LaTeX Font Info:    ... okay on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count179
+\scratchcounter=\count183
 \scratchdimen=\dimen152
 \scratchbox=\box46
-\nofMPsegments=\count180
-\nofMParguments=\count181
+\nofMPsegments=\count184
+\nofMParguments=\count185
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count182
+\MPscratchCnt=\count186
 \MPscratchDim=\dimen153
-\MPnumerator=\count183
-\makeMPintoPDFobject=\count184
+\MPnumerator=\count187
+\makeMPintoPDFobject=\count188
 \everyMPtoPDFconversion=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
-5.
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum.png, id=1
-, 1100.76244pt x 368.42644pt>
-File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum.png 
-Graphic file (type png)
+<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum.png, id=
+1, 1100.76244pt x 368.42644pt>
+File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum.png
+ Graphic file (type png)
 <use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum.png>
-Package luatex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_an
-gular_momentum.png  used on input line 24.
-(luatex.def)             Requested size: 882.03545pt x 295.21938pt.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 26.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 26.
-<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_baryons.p
-ng, id=2, 1100.913pt x 368.42644pt>
-File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_bary
-ons.png Graphic file (type png)
-<use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_baryo
-ns.png>
-Package luatex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_an
-gular_momentum_baryons.png  used on input line 31.
-(luatex.def)             Requested size: 882.03545pt x 295.18565pt.
-<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_cdm.png, 
-id=3, 1100.76244pt x 368.42644pt>
-File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_cdm.
-png Graphic file (type png)
-<use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_cdm.p
-ng>
-Package luatex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_an
-gular_momentum_cdm.png  used on input line 37.
-(luatex.def)             Requested size: 882.03545pt x 295.21938pt.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 40.
 
-[1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}<../../plots
-/baryon_cdm/expansion_factor-net_specific_angular_momentum.png><../../plots/bary
-on_cdm/expansion_factor-net_specific_angular_momentum_baryons.png><../../plots/b
-aryon_cdm/expansion_factor-net_specific_angular_momentum_cdm.png>]
-<../../plots/baryon_cdm/expansion_factor-net_angular_momentum.png, id=19, 1096.5
-4669pt x 368.42644pt>
-File: ../../plots/baryon_cdm/expansion_factor-net_angular_momentum.png Graphic f
-ile (type png)
+Package pdftex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_a
+ngular_momentum.png  used on input line 28.
+(pdftex.def)             Requested size: 882.03545pt x 295.21938pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 30.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 30.
+<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_baryons.
+png, id=3, 1100.913pt x 368.42644pt>
+File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_bar
+yons.png Graphic file (type png)
+<use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_bary
+ons.png>
+Package pdftex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_a
+ngular_momentum_baryons.png  used on input line 35.
+(pdftex.def)             Requested size: 882.03545pt x 295.18565pt.
+<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_cdm.png,
+ id=4, 1100.76244pt x 368.42644pt>
+File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_cdm
+.png Graphic file (type png)
+<use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_cdm.
+png>
+Package pdftex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_a
+ngular_momentum_cdm.png  used on input line 41.
+(pdftex.def)             Requested size: 882.03545pt x 295.21938pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 44.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 44.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 44.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 50.
+
+[1
+
+{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map} <../../plots
+/baryon_cdm/expansion_factor-net_specific_angular_momentum.png> <../../plots/ba
+ryon_cdm/expansion_factor-net_specific_angular_momentum_baryons.png> <../../plo
+ts/baryon_cdm/expansion_factor-net_specific_angular_momentum_cdm.png>]
+<../../plots/baryon_cdm/expansion_factor-net_angular_momentum.png, id=23, 1096.
+54669pt x 368.42644pt>
+File: ../../plots/baryon_cdm/expansion_factor-net_angular_momentum.png Graphic 
+file (type png)
 <use ../../plots/baryon_cdm/expansion_factor-net_angular_momentum.png>
-Package luatex.def Info: ../../plots/baryon_cdm/expansion_factor-net_angular_mom
-entum.png  used on input line 49.
-(luatex.def)             Requested size: 882.03545pt x 296.3606pt.
-<../../plots/baryon_cdm/expansion_factor-net_angular_momentum_baryons.png, id=20
-, 1096.54669pt x 368.42644pt>
-File: ../../plots/baryon_cdm/expansion_factor-net_angular_momentum_baryons.png G
-raphic file (type png)
+Package pdftex.def Info: ../../plots/baryon_cdm/expansion_factor-net_angular_mo
+mentum.png  used on input line 63.
+(pdftex.def)             Requested size: 882.03545pt x 296.3606pt.
+<../../plots/baryon_cdm/expansion_factor-net_angular_momentum_baryons.png, id=2
+4, 1096.54669pt x 368.42644pt>
+File: ../../plots/baryon_cdm/expansion_factor-net_angular_momentum_baryons.png 
+Graphic file (type png)
 <use ../../plots/baryon_cdm/expansion_factor-net_angular_momentum_baryons.png>
-Package luatex.def Info: ../../plots/baryon_cdm/expansion_factor-net_angular_mom
-entum_baryons.png  used on input line 56.
-(luatex.def)             Requested size: 882.03545pt x 296.3606pt.
-<../../plots/baryon_cdm/expansion_factor-net_angular_momentum_cdm.png, id=21, 11
-10.549pt x 368.42644pt>
-File: ../../plots/baryon_cdm/expansion_factor-net_angular_momentum_cdm.png Graph
-ic file (type png)
+Package pdftex.def Info: ../../plots/baryon_cdm/expansion_factor-net_angular_mo
+mentum_baryons.png  used on input line 70.
+(pdftex.def)             Requested size: 882.03545pt x 296.3606pt.
+<../../plots/baryon_cdm/expansion_factor-net_angular_momentum_cdm.png, id=25, 1
+110.549pt x 368.42644pt>
+File: ../../plots/baryon_cdm/expansion_factor-net_angular_momentum_cdm.png Grap
+hic file (type png)
 <use ../../plots/baryon_cdm/expansion_factor-net_angular_momentum_cdm.png>
-Package luatex.def Info: ../../plots/baryon_cdm/expansion_factor-net_angular_mom
-entum_cdm.png  used on input line 62.
-(luatex.def)             Requested size: 882.03545pt x 292.62776pt.
- [2<../../plots/baryon_cdm/expansion_factor-net_angular_momentum.png><../../plot
-s/baryon_cdm/expansion_factor-net_angular_momentum_baryons.png><../../plots/bary
-on_cdm/expansion_factor-net_angular_momentum_cdm.png>]
-<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2.png
-, id=28, 1090.0725pt x 368.42644pt>
-File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by
-2.png Graphic file (type png)
-<use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2
-.png>
-Package luatex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_an
-gular_momentum_a3by2.png  used on input line 74.
-(luatex.def)             Requested size: 882.03545pt x 298.11456pt.
-<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2_bar
-yons.png, id=29, 1095.49275pt x 368.42644pt>
-File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by
-2_baryons.png Graphic file (type png)
-<use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2
-_baryons.png>
-Package luatex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_an
-gular_momentum_a3by2_baryons.png  used on input line 81.
-(luatex.def)             Requested size: 882.03545pt x 296.6473pt.
-<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2_cdm
-.png, id=30, 1095.49275pt x 368.42644pt>
-File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by
-2_cdm.png Graphic file (type png)
-<use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2
-_cdm.png>
-Package luatex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_an
-gular_momentum_a3by2_cdm.png  used on input line 87.
-(luatex.def)             Requested size: 882.03545pt x 296.6473pt.
- [3<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2.
-png><../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2
-_baryons.png><../../plots/baryon_cdm/expansion_factor-net_specific_angular_momen
-tum_a3by2_cdm.png>]
-(./plots.aux))
+Package pdftex.def Info: ../../plots/baryon_cdm/expansion_factor-net_angular_mo
+mentum_cdm.png  used on input line 76.
+(pdftex.def)             Requested size: 882.03545pt x 292.62776pt.
 
-Here is how much of LuaTeX's memory you used:
- 3058 strings out of 480991
- 100000,319454 words of node,token memory allocated
- 427 words of node memory still in use:
-   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 7 attribute, 48 glue_spec,
- 7 attribute_list, 4 write nodes
-   avail lists: 2:152,3:36,4:25,5:79,6:14,7:804,8:4,9:79,10:24,11:73
- 20465 multiletter control sequences out of 65536+600000
- 43 fonts using 4725523 bytes
- 41i,7n,45p,301b,503s stack positions out of 5000i,500n,10000p,200000b,100000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></
-usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf></usr
-/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/s
-hare/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on plots.pdf (3 pages, 2849206 bytes).
+[2
 
-PDF statistics: 72 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 100000000)
+ <../../plots/baryon_cdm/expansion_factor-net_angular_momentum.png> <../../plot
+s/baryon_cdm/expansion_factor-net_angular_momentum_baryons.png> <../../plots/ba
+ryon_cdm/expansion_factor-net_angular_momentum_cdm.png>]
+<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2.pn
+g, id=33, 1090.0725pt x 368.42644pt>
+File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3b
+y2.png Graphic file (type png)
+<use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by
+2.png>
+Package pdftex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_a
+ngular_momentum_a3by2.png  used on input line 95.
+(pdftex.def)             Requested size: 882.03545pt x 298.11456pt.
+<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2_ba
+ryons.png, id=34, 1095.49275pt x 368.42644pt>
+File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3b
+y2_baryons.png Graphic file (type png)
+<use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by
+2_baryons.png>
+Package pdftex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_a
+ngular_momentum_a3by2_baryons.png  used on input line 102.
+(pdftex.def)             Requested size: 882.03545pt x 296.6473pt.
+<../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2_cd
+m.png, id=35, 1095.49275pt x 368.42644pt>
+File: ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3b
+y2_cdm.png Graphic file (type png)
+<use ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by
+2_cdm.png>
+Package pdftex.def Info: ../../plots/baryon_cdm/expansion_factor-net_specific_a
+ngular_momentum_a3by2_cdm.png  used on input line 108.
+(pdftex.def)             Requested size: 882.03545pt x 296.6473pt.
+ [3
+
+ <../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2.p
+ng> <../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by
+2_baryons.png> <../../plots/baryon_cdm/expansion_factor-net_specific_angular_mo
+mentum_a3by2_cdm.png>] (./plots.aux) ) 
+Here is how much of TeX's memory you used:
+ 2922 strings out of 482555
+ 49935 string characters out of 5952145
+ 283453 words of memory out of 5000000
+ 18567 multiletter control sequences out of 15000+600000
+ 537289 words of font info for 40 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 48i,7n,46p,301b,484s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/
+dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/cm-super/sfrm1440.pfb>
+Output written on plots.pdf (3 pages, 2918510 bytes).
+PDF statistics:
+ 78 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
