@@ -37,17 +37,20 @@ def get_plot_axes_titles():
 	title['masses']							= 'Mass [$M_{\odot}$]'
 	return title
 
-def plot_expansion_factor_net_specific_angular_momentum(df,assembly_names,show=True):
+def plot_expansion_factor_net_specific_angular_momentum(df,assembly_names,show=True,suffix=''):
 	prepare_plot(font_scale=1.25)
 	col = 'assembly'
+	# df['net_specific_angular_momentum_a3by2']  = df['net_specific_angular_momentum']/df['expansion_factor']
 	g 	= sns.relplot(
-					data 	= computed_values_df, 
+					data 	= df, 
 					x 		= 'expansion_factor',
 					y  		= 'net_specific_angular_momentum',
 					col  	= col,
 					hue  	= col,
 					kind  	= 'scatter',
-					legend 	= False
+					legend 	= False,
+					col_order = ['gm_early','organic','gm_late'],
+					hue_order = ['gm_early','organic','gm_late']
 					).set(
 					xlabel 	= get_plot_axes_titles()['expansion_factor'],
 					ylabel 	= get_plot_axes_titles()['net_specific_angular_momentum'])
@@ -68,10 +71,10 @@ def plot_expansion_factor_net_specific_angular_momentum(df,assembly_names,show=T
 						)
 			axis.loglog()
 
-	plot_or_not(show=show,plot_name='expansion_factor-net_specific_angular_momentum')
+	plot_or_not(show=show,plot_name='expansion_factor-net_specific_angular_momentum',suffix=suffix)
 	return
 
-def plot_expansion_factor_net_angular_momentum(df,assembly_names,show=True):
+def plot_expansion_factor_net_angular_momentum(df,assembly_names,powerlaw_offset=1e8,show=True,suffix=''):
 	prepare_plot(font_scale=1.25)
 	col = 'assembly'
 	g 	= sns.relplot(
@@ -81,7 +84,9 @@ def plot_expansion_factor_net_angular_momentum(df,assembly_names,show=True):
 					col  	= col,
 					hue  	= col,
 					kind  	= 'scatter',
-					legend 	= False
+					legend 	= False,
+					col_order = ['gm_early','organic','gm_late'],
+					hue_order = ['gm_early','organic','gm_late']
 					).set(
 					xlabel 	= get_plot_axes_titles()['expansion_factor'],
 					ylabel 	= get_plot_axes_titles()['net_angular_momentum'])
@@ -92,7 +97,7 @@ def plot_expansion_factor_net_angular_momentum(df,assembly_names,show=True):
 	for axes in g.axes:
 		for axis in axes:
 			powerlaw_x = np.linspace(axis.get_xlim()[0],axis.get_xlim()[1],10)
-			powerlaw_y = 1e8*powerlaw_x**(1.5)
+			powerlaw_y = powerlaw_offset*powerlaw_x**(1.5)
 			axis.plot(
 							powerlaw_x,
 							powerlaw_y,
@@ -102,7 +107,7 @@ def plot_expansion_factor_net_angular_momentum(df,assembly_names,show=True):
 						)
 			axis.loglog()
 
-	plot_or_not(show=show,plot_name='expansion_factor-net_angular_momentum')
+	plot_or_not(show=show,plot_name='expansion_factor-net_angular_momentum',suffix=suffix)
 	return
 
 def get_secondary_x_axis(**kwargs):
@@ -203,7 +208,6 @@ def plot_zavala_fig2l(zero_redshift_dict,assembly_names,show=True):
 	plot_or_not(show=show,plot_name='zavala_fig2l')
 	return
 
-# ============================================ Main Program =============================================
 
 if __name__ == '__main__' :
 
@@ -214,21 +218,21 @@ if __name__ == '__main__' :
 
 	files  = {str(assembly):get_files(get_directory(str(assembly)+'_data')) for assembly in assembly_list}
 
-	# # ------- Available fields for cols :
-	# # ------- 'coords_x', 'coords_y', 'coords_z', 'vel_x', 'vel_y', 'vel_z', 'mass', 'redshift'
+	# ------- Available fields for cols :
+	# ------- 'coords_x', 'coords_y', 'coords_z', 'vel_x', 'vel_y', 'vel_z', 'mass', 'redshift'
 	
 	cols				= ['coords_x', 'coords_y', 'coords_z', 'vel_x', 'vel_y', 'vel_z', 'mass']
 
-	# # ------- Get dataframe containing data for each type of assembly mode and store in a dictionary.
+	# ------- Get dataframe containing data for each type of assembly mode and store in a dictionary.
 
 	df 		= {str(assembly):get_df(files[str(assembly)],cols) for assembly in assembly_list}
 
-	# # ------- Close HDF5 file handles
+	# ------- Close HDF5 file handles
 
 	for assembly in files.keys():
 		close_hdf5_files(files[assembly])
 
-	# # ------- Provide plot-friendly names to dataframes for deffrent assembly modes.
+	# ------- Provide plot-friendly names to dataframes for deffrent assembly modes.
 	
 	assembly_names  	= {'gm_early':'GM-Early','organic':'Organic','gm_late':'GM-Late'}
 	for assembly in assembly_list:

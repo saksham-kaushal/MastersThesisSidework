@@ -62,7 +62,11 @@ def get_directory(directory):
 	dir_dict['gm_late_data_dir']	= os.path.join(dir_dict['data_dir'], 'gm_late')
 	dir_dict['plots_dir']			= os.path.join(dir_dict['root_dir'], 'plots')
 	dir_dict['zavala2l_dir']		= os.path.join(dir_dict['data_dir'], 'zavala_fig2l')
-
+	dir_dict['baryon_cdm_data_dir']	= os.path.join(dir_dict['data_dir'], 'baryon_cdm_data')
+	dir_dict['gm_early_baryon_cdm_data_dir']	= os.path.join(dir_dict['baryon_cdm_data_dir'], 'gm_early')
+	dir_dict['organic_baryon_cdm_data_dir']		= os.path.join(dir_dict['baryon_cdm_data_dir'], 'organic')
+	dir_dict['gm_late_baryon_cdm_data_dir']		= os.path.join(dir_dict['baryon_cdm_data_dir'], 'gm_late')
+	
 	if directory == 'plotter':							# If plotter function calls this function, return the plotting subdirectory in the "plots" directory.
 		frame 				= inspect.stack()[-1]
 		plot_subdir_path	= frame[0].f_code.co_filename
@@ -83,63 +87,63 @@ def get_files(directory, mode='r'):
 
 # ++++++++++++++++++++ Getter functions for hdf5 files dataset columns 
 
-def get_coords_x(fname):
+def get_coords_x(fname,group):
 	'''
 	Returns x-coordinates from an hdf5 file.
 	Parameters	:
 	fname 	- Open handle for an hdf5 file.
 	'''
-	return fname["Coordinates"][:,0]
+	return fname[str(group)+"/Coordinates"][:,0]
 
-def get_coords_y(fname):
+def get_coords_y(fname,group='.'):
 	'''
 	Returns y-coordinates from an hdf5 file.
 	Parameters	:
 	fname 	- Open handle for an hdf5 file.
 	'''
-	return fname["Coordinates"][:,1]
+	return fname[str(group)+"/Coordinates"][:,1]
 
-def get_coords_z(fname):
+def get_coords_z(fname,group='.'):
 	'''
 	Returns z-coordinates from an hdf5 file.
 	Parameters	:
 	fname 	- Open handle for an hdf5 file.
 	'''
-	return fname["Coordinates"][:,2]
+	return fname[str(group)+"/Coordinates"][:,2]
 
-def get_vel_x(fname):
+def get_vel_x(fname,group='.'):
 	'''
 	Returns velocities along x-axis from an hdf5 file.
 	Parameters	:
 	fname 	- Open handle for an hdf5 file.
 	'''
-	return fname["Velocity"][:,0]
+	return fname[str(group)+"/Velocity"][:,0]
 
-def get_vel_y(fname):
+def get_vel_y(fname,group='.'):
 	'''
 	Returns velocities along y-axis from an hdf5 file.
 	Parameters	:
 	fname 	- Open handle for an hdf5 file.
 	'''
-	return fname["Velocity"][:,1]
+	return fname[str(group)+"/Velocity"][:,1]
 
-def get_vel_z(fname):
+def get_vel_z(fname,group='.'):
 	'''
 	Returns velocities along z-axis from an hdf5 file.
 	Parameters	:
 	fname 	- Open handle for an hdf5 file.
 	'''
-	return fname["Velocity"][:,2]
+	return fname[str(group)+"/Velocity"][:,2]
 
-def get_mass(fname):
+def get_mass(fname,group='.'):
 	'''
 	Returns star particle masses from an hdf5 file.
 	Parameters	:
 	fname 	- Open handle for an hdf5 file.
 	'''
-	return fname["Mass"]
+	return fname[str(group)+"/Mass"]
 
-def get_redshift(fname):
+def get_redshift(fname,group='.'):
 	'''
 	Returns redshift value for an hdf5 file. Uses regex to find redshift value from filename.
 	Parameters	:
@@ -149,7 +153,7 @@ def get_redshift(fname):
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-def get_subdf(fname,params_list):
+def get_subdf(fname,params_list,group='.'):
 	'''
 	Returns a sub-dataframe containing a subset of columns available in a single hdf5 file.
 	Parameters	:
@@ -168,10 +172,12 @@ def get_subdf(fname,params_list):
 		'redshift'	:  get_redshift
 		}
 	for param in params_list:
-		subdf[param] = params_dict[param](fname)
+		subdf[param] = params_dict[param](fname,group=group)
+	if group != '.' :
+		subdf['group'] = group
 	return subdf
 
-def get_df(fname_list, params_list=['coords_x', 'coords_y', 'coords_z', 'vel_x', 'vel_y', 'vel_z', 'mass', 'redshift']):
+def get_df(fname_list, params_list=['coords_x', 'coords_y', 'coords_z', 'vel_x', 'vel_y', 'vel_z', 'mass', 'redshift'], group_list=['.']):
 	'''
 	Returns a concatenated dataframe (of a single assembly type) of all sub-dataframes constructed using individual hdf5 files.
 	Parameters	:
@@ -181,7 +187,7 @@ def get_df(fname_list, params_list=['coords_x', 'coords_y', 'coords_z', 'vel_x',
 	df = pd.DataFrame()
 	if 'redshift' not in params_list:			# Compulsorily add redshift in list of columns.
 		params_list.append('redshift')
-	df = pd.concat([df]+[get_subdf(fname,params_list) for fname in fname_list], ignore_index=True)
+	df = pd.concat([df]+[get_subdf(fname,params_list,group) for group in group_list for fname in fname_list], ignore_index=True)
 	return df
 
 def get_particle_distribution(df_list,col='redshift'):
@@ -237,7 +243,7 @@ def prepare_plot(context='paper',theme='dark',font_scale=1,rc_kwparams=dict()):
 	sns.set_palette(sns.color_palette(colours))
 	return
 
-def plot_or_not(show,plot_name=None,dpi=480,ftype='png',bbox_inches='tight'):
+def plot_or_not(show,plot_name=None,suffix='',dpi=480,ftype='png',bbox_inches='tight'):
 	'''
 	Function to switch between show and save methods for plots.
 	Parameters	:	
@@ -252,7 +258,7 @@ def plot_or_not(show,plot_name=None,dpi=480,ftype='png',bbox_inches='tight'):
 	elif show == False :
 		if plot_name == None :
 			plot_name = np.random.randint(10000,99999)
-		plt.savefig(os.path.join(get_directory('plotter'),plot_name+'.'+str(ftype)),
+		plt.savefig(os.path.join(get_directory('plotter'),plot_name+str(suffix)+'.'+str(ftype)),
 			dpi=dpi,bbox_inches=bbox_inches)
 	elif show == None :
 		pass 
