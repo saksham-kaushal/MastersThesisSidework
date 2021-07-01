@@ -194,7 +194,7 @@ def plot_zavala_fig2l(zero_redshift_dict,assembly_names,show=True):
 					x='stellar_particle_mass',
 					y='specific_angular_momentum',
 					hue='morphology',
-					ci='sd',
+					# ci='sd',
 					ax=ax
 					).set(
 					xlabel='Total Mass of Stellar Particles [$M_{\odot}$]',

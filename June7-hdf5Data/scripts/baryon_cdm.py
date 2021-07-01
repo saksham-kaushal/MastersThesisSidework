@@ -1,5 +1,6 @@
 from plotter import *
 from angular_momentum import *
+from matplotlib.ticker import FuncFormatter
 
 pd.set_option('display.expand_frame_repr', False)
 
@@ -42,6 +43,53 @@ def plot_expansion_factor_net_specific_angular_momentum_a3by2(df,assembly_names,
 	plot_or_not(show=show,plot_name='expansion_factor-net_specific_angular_momentum_a3by2',suffix=suffix)
 	return
 
+def plot_net_specific_angular_momentum_combined(df,assembly_names,particles_titles,show=True,suffix=''):
+	prepare_plot(font_scale=1.25)
+	col 	= 'assembly'
+	assembly_order = ['gm_early','organic','gm_late']
+	hue 	= 'group'
+	sns.set_palette(sns.color_palette(['#333333','#009fe5']))
+	palette_order  	= ['PartType1','PartType0+PartType4']
+	g 		= sns.relplot(
+							data 	= df, 
+							x 		= 'expansion_factor',
+							y  		= 'net_specific_angular_momentum',
+							col  	= col,
+							hue  	= hue,
+							kind  	= 'line',
+							col_order = assembly_order,
+							hue_order = palette_order
+							).set(
+							xlabel 	= get_plot_axes_titles()['expansion_factor'],
+							ylabel 	= get_plot_axes_titles()['net_specific_angular_momentum']
+						)
+
+	g._legend.set_title('')
+	for i,text_entry in enumerate(g._legend.texts):
+		text_entry.set_text(particles_titles[palette_order[i]])
+
+	for col_val,ax in g.axes_dict.items():
+		col_val  	= assembly_names[col_val]
+		ax.set_title(str(col_val)+' '+capitalize_first_letter(col),fontdict={'fontsize':15})
+
+	for axes in g.axes:
+		for axis in axes:
+			powerlaw_x = np.linspace(axis.get_xlim()[0],axis.get_xlim()[1],15)
+			powerlaw_y = powerlaw_x**(1.5)
+			axis.plot(
+							powerlaw_x,
+							powerlaw_y,
+							color='black',
+							ls='--',
+							lw=0.5
+						)
+			axis.loglog()
+		for ax in [axis.xaxis, axis.yaxis]:
+			formatter = FuncFormatter(lambda y, _: '{:.16g}'.format(y))
+			ax.set_major_formatter(formatter)
+
+	plot_or_not(show=show,plot_name='expansion_factor-net_specific_angular_momentum_combined',suffix=suffix)
+	return
 
 # ============================================ Main Program =============================================
 
@@ -60,9 +108,10 @@ if __name__ == '__main__' :
 
 	# ------- Particle type 0 = Gas, 1 = Dark Matter, and 4 = Stars
 
-	# particles  			= ['PartType0', 'PartType1', 'PartType4']
+	particles  			= ['PartType0', 'PartType1', 'PartType4']
 	# particles  			= ['PartType0', 'PartType4']
-	particles  			= ['PartType1']
+	# particles  			= ['PartType1']
+	particles_titles  	= {'PartType0':'Gas', 'PartType1':'Cold Dark Matter', 'PartType4':'Stars', 'PartType0+PartType4':'Baryonic Matter'}
 
 	# ------- Get dataframe containing data for each type of assembly mode and store in a dictionary.
 
@@ -103,6 +152,7 @@ if __name__ == '__main__' :
 			for particle_type in particles:
 				subdf 	= supdf.groupby('group').get_group(particle_type)
 				coords, velocities, masses 		= get_numpy_arrays(subdf)
+				distance  						= get_norm(coords)
 				rxv 							= get_rxv(coords,velocities)
 				angular_momentum  				= get_angular_momentum(rxv,masses)
 				net_angular_momentum  			= get_norm(angular_momentum)
@@ -146,12 +196,19 @@ if __name__ == '__main__' :
 	computed_values_df 		= pd.concat(computed_values_assembly_list,ignore_index=True)
 	print(computed_values_df.groupby('group').groups.keys())
 
-	net_angular_momentum_redshift = computed_values_df.groupby(['redshift','assembly'],as_index=False)['net_angular_momentum'].sum().rename(columns={'sum':'net_angular_momentum','redshift':'redshift','assembly':'assembly'})
-	net_angular_momentum_redshift['expansion_factor'] = 1/(1+net_angular_momentum_redshift['redshift'])
-	plot_expansion_factor_net_angular_momentum(net_angular_momentum_redshift,assembly_names,powerlaw_offset=1e9,show=False,suffix='_cdm')
+	# net_angular_momentum_redshift = computed_values_df.groupby(['redshift','assembly'],as_index=False)['net_angular_momentum'].sum().rename(columns={'sum':'net_angular_momentum','redshift':'redshift','assembly':'assembly'})
+	# net_angular_momentum_redshift['expansion_factor'] = 1/(1+net_angular_momentum_redshift['redshift'])
+	# plot_expansion_factor_net_angular_momentum(net_angular_momentum_redshift,assembly_names,powerlaw_offset=1e9,show=False,suffix='_cdm')
 
-	net_specific_angular_momentum_redshift = computed_values_df.groupby(['redshift','assembly'],as_index=False)['net_specific_angular_momentum'].sum().rename(columns={'sum':'net_specific_angular_momentum','redshift':'redshift','assembly':'assembly'})
-	net_specific_angular_momentum_redshift['expansion_factor'] = 1/(1+net_specific_angular_momentum_redshift['redshift'])
-	plot_expansion_factor_net_specific_angular_momentum(net_specific_angular_momentum_redshift,assembly_names,show=False,suffix='_cdm')
-	plot_expansion_factor_net_specific_angular_momentum_a3by2(net_specific_angular_momentum_redshift,assembly_names,show=False,suffix='_cdm')
+	# net_specific_angular_momentum_redshift = computed_values_df.groupby(['redshift','assembly'],as_index=False)['net_specific_angular_momentum'].sum().rename(columns={'sum':'net_specific_angular_momentum','redshift':'redshift','assembly':'assembly'})
+	# net_specific_angular_momentum_redshift['expansion_factor'] = 1/(1+net_specific_angular_momentum_redshift['redshift'])
+	# plot_expansion_factor_net_specific_angular_momentum(net_specific_angular_momentum_redshift,assembly_names,show=False,suffix='_cdm')
+	# plot_expansion_factor_net_specific_angular_momentum_a3by2(net_specific_angular_momentum_redshift,assembly_names,show=False,suffix='_cdm')
 	
+	net_specific_angular_momentum_all_particles = computed_values_df.replace({'group':{'PartType0':'PartType0+PartType4','PartType4':'PartType0+PartType4'}})
+	# multi_index =net_specific_angular_momentum_all_particles.set_index(['redshift','expansion_factor','assembly','group'])
+	net_specific_angular_momentum_all_particles = net_specific_angular_momentum_all_particles.groupby(['redshift','assembly','group'],as_index=False)['net_specific_angular_momentum'].sum().rename(columns={'sum':'net_specific_angular_momentum','redshift':'redshift','assembly':'assembly'})
+	net_specific_angular_momentum_all_particles['expansion_factor'] = 1/(1+net_specific_angular_momentum_all_particles['redshift'])
+	# print(net_specific_angular_momentum_all_particles)
+	plot_net_specific_angular_momentum_combined(net_specific_angular_momentum_all_particles,assembly_names,particles_titles,show=False,suffix='_only_L')
+
