@@ -90,9 +90,9 @@ INPUT ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by
 INPUT ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2_cdm.png
 INPUT ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2_cdm.png
 INPUT ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2_cdm.png
-INPUT ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_only_L.png
-INPUT ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_only_L.png
-INPUT ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_only_L.png
+INPUT ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_inner_dm_halo.png
+INPUT ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_inner_dm_halo.png
+INPUT ../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_inner_dm_halo.png
 INPUT plots.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
