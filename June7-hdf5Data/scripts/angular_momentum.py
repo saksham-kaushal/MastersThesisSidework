@@ -35,6 +35,7 @@ def get_plot_axes_titles():
 	title['total_kinetic_energy']			= 'Total Kinetic Energy [$M_{\odot}$ $km^{2}$ $s^{-2}$]'
 	title['time'] 							= 'Time [$Gyr$]'
 	title['masses']							= 'Mass [$M_{\odot}$]'
+	title['median_radius']					= 'Median Radius [$Mpc$]'
 	return title
 
 def plot_expansion_factor_net_specific_angular_momentum(df,assembly_names,show=True,suffix=''):

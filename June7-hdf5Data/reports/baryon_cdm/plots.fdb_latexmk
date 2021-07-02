@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1625234681 "plots.tex" "plots.pdf" "plots" 1625234698
+["pdflatex"] 1625261491 "plots.tex" "plots.pdf" "plots" 1625261509
   "../../plots/baryon_cdm/expansion_factor-net_angular_momentum.png" 1625141381 443581 5c44b5f7f9ac4cd2ca3f7dabada472b9 ""
   "../../plots/baryon_cdm/expansion_factor-net_angular_momentum_baryons.png" 1625141412 444065 1155dfaf162291d8b3b9195dd326152c ""
   "../../plots/baryon_cdm/expansion_factor-net_angular_momentum_cdm.png" 1625153026 444348 243ded0efc4aba1e797c79444bc525b5 ""
@@ -9,7 +9,7 @@
   "../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_a3by2_cdm.png" 1625153030 311950 79debca04055050fa681afaaf0026a74 ""
   "../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_baryons.png" 1625141415 455162 dc5f950724c9648abb6490001ea174e3 ""
   "../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_cdm.png" 1625153028 460628 03fcbff448d69051e8243f4dbb27cfe6 ""
-  "../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_inner_dm_halo.png" 1625234477 929918 cf3260a028e24e84df490c63591339b0 ""
+  "../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_inner_dm_halo.png" 1625261034 1013917 0ac36dcb56f0653759f8c97fc179091d ""
   "/home/saksham/.texlive2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1613326808 1146607 2162ddb54d24cd35b9e1d088a99fb843 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1604350495 5022041 fedbf65a04995bc2a815b3fd3ce911d3 ""
@@ -57,9 +57,9 @@
   "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def" 1584044900 25398 19ae1e59d7f4a47fefb457d851f6f503 ""
   "/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1621882710 39615 33f7d51cf394547e122c9714408659b1 ""
-  "plots.aux" 1625234698 961 c95f2a130a3c04fc363179af8e5f5bfe "pdflatex"
+  "plots.aux" 1625261509 961 c95f2a130a3c04fc363179af8e5f5bfe "pdflatex"
   "plots.tex" 1625234662 6032 8b68685aad98a53bf96344e682b1ea6a ""
   (generated)
-  "plots.aux"
   "plots.log"
+  "plots.aux"
   "plots.pdf"

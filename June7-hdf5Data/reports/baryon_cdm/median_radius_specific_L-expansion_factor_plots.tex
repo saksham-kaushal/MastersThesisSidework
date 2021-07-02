@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{
+	paperwidth=35cm,
+	paperheight=25cm,
+	% textwidth=35cm,
+	% textheight=48cm,
+	% total={35cm,48cm},
+	top=2cm,
+	bottom=2cm,
+	left=2cm,
+	right=2cm,
+}
+\usepackage{graphicx}
+\graphicspath{{../plots/}}
+\usepackage{subcaption}
+\usepackage[font=large,labelfont=bf]{caption}
+\captionsetup{width=\textwidth}
+
+\begin{document}
+
+	\begin{figure}
+		
+		\centering
+		\begin{subfigure} {\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/baryon_cdm/expansion_factor-median_radius.png}
+		\end{subfigure}		
+		\begin{subfigure} {\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_inner_dm_halo.png}
+		\end{subfigure}
+		\caption{Evolution of median radius (top) and specific angular momentum (bottom) of complete dark matter halo, baryonic matter and inner dark matter halo (at 20kpc) with expansion factor for the three assembly modes.}
+		\label{fig:1}
+
+	\end{figure}
+
+	\clearpage
+
+	\begin{figure}
+		
+		\centering
+		\begin{subfigure} {\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/baryon_cdm/expansion_factor-median_radius_30kpcinnerdm.png}
+		\end{subfigure}		
+		\begin{subfigure} {\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_inner_dm_halo_30kpcinnerdm.png}
+		\end{subfigure}
+		\caption{Same as figure \ref{fig:1} for inner dark matter halo radius of 30kpc.}
+		
+	\end{figure}
+
+	\clearpage 
+
+	\begin{figure}
+		
+		\centering
+		\begin{subfigure} {\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/baryon_cdm/expansion_factor-median_radius_40kpcinnerdm.png}
+		\end{subfigure}		
+		\begin{subfigure} {\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/baryon_cdm/expansion_factor-net_specific_angular_momentum_combined_inner_dm_halo_40kpcinnerdm.png}
+		\end{subfigure}
+		\caption{Same as figure \ref{fig:1} for inner dark matter halo radius of 40kpc.}
+		
+	\end{figure}
+
+\end{document}
