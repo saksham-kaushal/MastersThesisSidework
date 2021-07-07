@@ -21,7 +21,10 @@ def get_orthonormal_basis(angular_momentum_vector):
 	return normalize_3dvector(basis_vectors)
 
 def coordinates_transform(galaxy_coords,unit_3dvectors):
-	return np.dot(galaxy_coords,unit_3dvectors)
+	transforms = list()
+	for coord in galaxy_coords:
+		transforms.append(np.dot(unit_3dvectors,coord))
+	return np.array(transforms)
  
 # ============================================ Main Program =============================================
 
@@ -112,9 +115,10 @@ if __name__ == '__main__':
 	computed_values_df 		= pd.concat(computed_values_assembly_list,ignore_index=True)
 	computed_values_df['orthonormal_basis'] = computed_values_df['angular_momentum'].apply(get_orthonormal_basis)
 	computed_values_df['modified_coords'] 	= computed_values_df.apply(lambda x:coordinates_transform(x['coords'],x['orthonormal_basis']),axis=1)
-	print_df(computed_values_df[['coords']].iloc[0])
-	print_df(computed_values_df[['orthonormal_basis']].iloc[0])
-	print_df(computed_values_df[['modified_coords']].iloc[0])
+	print(computed_values_df[['coords']])
+	print(computed_values_df[['orthonormal_basis']])
+	print(computed_values_df[['modified_coords']])
+	# print(np.dot(np.array(computed_values_df['coords'].iloc[0]),np.array(computed_values_df['orthonormal_basis'].iloc[0])))
 	# print(computed_values_df['coords'].apply(lambda x:x[:,0]))
 	# print(computed_values_df['coords'][0])
 	n = [len(item) for item in computed_values_df['modified_coords']]

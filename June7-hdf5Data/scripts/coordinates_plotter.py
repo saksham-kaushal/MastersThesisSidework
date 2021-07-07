@@ -20,7 +20,12 @@ def plot_galaxy_coordinates_combined(df_list, show=True):
 	df_list 	- list of dataframes constructed from hdf5 files, containging x, y and z coordinates of particles.
 	show 		- parameter to control showing or saving of plots, defaults to showing.
 	'''
-	palette 	= itertools.cycle(sns.color_palette())
+	colours  	= [
+					'#772e51', 		# Red/Magenta (lighter alternative '#923563')
+					'#44b677',		# Green
+					'#66b6d2'		# Blue (alternatives '#88ccee',#94c8e0', '#51abcb')
+					]
+	palette 	= itertools.cycle(sns.color_palette(colours))
 	row 		= 'redshift'
 	for df in df_list:
 		prepare_plot(font_scale=1.4)
@@ -84,7 +89,12 @@ def plot_galaxy_coordinates_individual(df_list, show=True):
 	df_list 	- list of dataframes constructed from hdf5 files, containging x, y and z coordinates of particles.
 	show 		- parameter to control showing or saving of plots, defaults to showing.
 	'''
-	palette 	= itertools.cycle(sns.color_palette())
+	colours  	= [
+					'#772e51', 		# Red/Magenta (lighter alternative '#923563')
+					'#44b677',		# Green
+					'#66b6d2'		# Blue (alternatives '#88ccee',#94c8e0', '#51abcb')
+					]
+	palette 	= itertools.cycle(sns.color_palette(colours))
 	row 		= 'redshift'
 	for df in df_list:
 		color 		= next(palette)
@@ -142,7 +152,12 @@ def plot_galaxy_coordinates_3d(df_list,show=True):
 	df_list 	- list of dataframes constructed from hdf5 files, containging x, y and z coordinates of particles.
 	show 		- parameter to control showing or saving of plots, defaults to showing.
 	'''
-	palette 	= itertools.cycle(sns.color_palette())
+	colours  	= [
+					'#772e51', 		# Red/Magenta (lighter alternative '#923563')
+					'#44b677',		# Green
+					'#66b6d2'		# Blue (alternatives '#88ccee',#94c8e0', '#51abcb')
+					]
+	palette 	= itertools.cycle(sns.color_palette(colours))
 	row 		= 'redshift'
 	for df in df_list:
 		color 		= next(palette)
