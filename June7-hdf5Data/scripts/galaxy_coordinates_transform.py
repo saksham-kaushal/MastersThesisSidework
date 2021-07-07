@@ -112,8 +112,9 @@ if __name__ == '__main__':
 	computed_values_df 		= pd.concat(computed_values_assembly_list,ignore_index=True)
 	computed_values_df['orthonormal_basis'] = computed_values_df['angular_momentum'].apply(get_orthonormal_basis)
 	computed_values_df['modified_coords'] 	= computed_values_df.apply(lambda x:coordinates_transform(x['coords'],x['orthonormal_basis']),axis=1)
-	# print_df(computed_values_df[['orthonormal_basis']].iloc[0])
-	# print_df(computed_values_df)
+	print_df(computed_values_df[['coords']].iloc[0])
+	print_df(computed_values_df[['orthonormal_basis']].iloc[0])
+	print_df(computed_values_df[['modified_coords']].iloc[0])
 	# print(computed_values_df['coords'].apply(lambda x:x[:,0]))
 	# print(computed_values_df['coords'][0])
 	n = [len(item) for item in computed_values_df['modified_coords']]
@@ -129,15 +130,13 @@ if __name__ == '__main__':
 		subdf = transformed_coords_df.groupby('assembly').get_group(assembly)
 		subdf.name = assembly_names[assembly]
 		df_list.append(subdf.convert_dtypes())
-	# print_df(df_list)
 
 	for df in df_list:
-		# print(df['assembly'].unique()[0])
 		df.name = assembly_names[df['assembly'].unique()[0]]
 
 	# cp.plot_galaxy_coordinates_combined(df_list,show=False)
 	# cp.plot_galaxy_coordinates_individual(df_list,show=False)
-	cp.plot_galaxy_coordinates_3d(df_list,show=False)
+	# cp.plot_galaxy_coordinates_3d(df_list,show=False)
 
 	gif_dirs 			= [
 							'GM-Early',
@@ -150,4 +149,4 @@ if __name__ == '__main__':
 
 	dir_list			= [os.path.join(get_directory('plotter'),subdir) for subdir in gif_dirs]
 	
-	make_gif(dir_list,fps=3)
+	# make_gif(dir_list,fps=3)
