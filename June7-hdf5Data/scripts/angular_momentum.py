@@ -17,12 +17,6 @@ def get_specific_angular_momentum(angular_momentum,masses):
 def get_angular_momentum(rxv, mass):
 	return np.sum(np.transpose(np.multiply(mass, np.transpose(rxv))),axis=0)
 
-def get_norm(param3d):
-	if param3d.ndim==1 :
-		return np.sqrt(np.sum(np.square(param3d),axis=0))
-	else :
-		return np.sqrt(np.sum(np.square(param3d),axis=1))
-
 def get_kinetic_energy(velocities,masses):
 	return np.sum(0.5*masses*np.square(get_norm(velocities)),axis=0)
 
@@ -209,6 +203,7 @@ def plot_zavala_fig2l(zero_redshift_dict,assembly_names,show=True):
 	plot_or_not(show=show,plot_name='zavala_fig2l')
 	return
 
+# ============================================ Main program =============================================
 
 if __name__ == '__main__' :
 

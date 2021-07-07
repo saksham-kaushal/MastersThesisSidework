@@ -45,6 +45,24 @@ def close_hdf5_files(h5_files_list):
 		h5_file.close()
 	return
 
+def get_norm(param3d):
+	if param3d.ndim==1 :
+		return np.sqrt(np.sum(np.square(param3d),axis=0))
+	else :
+		return np.sqrt(np.sum(np.square(param3d),axis=1))
+
+def normalize_3dvector(vector3d):
+	norm_x = vector3d[0]/get_norm(vector3d[0])
+	norm_y = vector3d[1]/get_norm(vector3d[1])
+	norm_z = vector3d[2]/get_norm(vector3d[2])
+	return np.vstack((norm_x,norm_y,norm_z))
+
+def print_df(df):
+	pd.set_option('display.max_columns',None)
+	pd.set_option('display.max_colwidth',None)
+	np.set_printoptions(threshold=np.inf)
+	print(df)
+	return
 # ----------------------- Getter functions --------------------------------
 
 def get_directory(directory):
