@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{
+	paperwidth=24cm,
+	paperheight=165cm,
+	top=2cm,
+	bottom=2cm,
+	left=2cm,
+	right=2cm,
+}
+\usepackage{graphicx}
+\graphicspath{{../plots/}}
+\usepackage[font=Large,labelfont=bf]{caption}
+\captionsetup{width=\linewidth}
+\usepackage{subcaption}
+
+\begin{document}
+
+	\begin{figure}
+		\centering
+		\begin{subfigure} {.325\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/galaxy_coordinates_transform/GM-Early_x-y_coordinates_evolution.png}
+				% \caption{Distribution of particles with redshift for three assembly modes.}
+		\end{subfigure}
+			\hfill
+		\begin{subfigure} {.325\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/galaxy_coordinates_transform/GM-Early_y-z_coordinates_evolution.png}
+				% \caption{Distribution of total mass of particles with redshift for three assembly modes.}
+		\end{subfigure}
+			\hfill
+		\begin{subfigure} {.325\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/galaxy_coordinates_transform/GM-Early_z-x_coordinates_evolution.png}
+		\end{subfigure}
+		
+		\caption{GM-Early}
+	\end{figure}
+
+	\clearpage
+
+	\begin{figure}
+		\centering
+		\begin{subfigure} {.325\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/galaxy_coordinates_transform/Organic_x-y_coordinates_evolution.png}
+				% \caption{Distribution of particles with redshift for three assembly modes.}
+		\end{subfigure}
+			\hfill
+		\begin{subfigure} {.325\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/galaxy_coordinates_transform/Organic_y-z_coordinates_evolution.png}
+				% \caption{Distribution of total mass of particles with redshift for three assembly modes.}
+		\end{subfigure}
+			\hfill
+		\begin{subfigure} {.325\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/galaxy_coordinates_transform/Organic_z-x_coordinates_evolution.png}
+		\end{subfigure}
+		
+		\caption{Organic.}
+	\end{figure}
+
+	\clearpage
+
+	\begin{figure}
+		\centering
+		\begin{subfigure} {.325\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/galaxy_coordinates_transform/GM-Late_x-y_coordinates_evolution.png}
+				% \caption{Distribution of particles with redshift for three assembly modes.}
+		\end{subfigure}
+			\hfill
+		\begin{subfigure} {.325\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/galaxy_coordinates_transform/GM-Late_y-z_coordinates_evolution.png}
+				% \caption{Distribution of total mass of particles with redshift for three assembly modes.}
+		\end{subfigure}
+			\hfill
+		\begin{subfigure} {.325\columnwidth}
+				\centering 
+				\includegraphics[width=\columnwidth]{../../plots/galaxy_coordinates_transform/GM-Late_z-x_coordinates_evolution.png}
+		\end{subfigure}
+		
+		\caption{GM-Late}
+	\end{figure}
+
+\end{document}
